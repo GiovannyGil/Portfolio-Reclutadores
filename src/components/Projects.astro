@@ -1,0 +1,107 @@
+---
+// list of projects
+const PROJECTS = [
+    {
+        title:"Legal system",
+        description: "Legal file control system, the system allows you to keep track of clients' legal files, as well as cases, appointments, clients, users, etc.",
+        image: {
+            Img1: "../../public/img/projects/Dashboard.PNG",
+            Img2: "../../public/img/projects/Users.PNG",
+            Img3: "../../public/img/projects/perfil.PNG",
+        },
+        date: "01/10/2023 - 15/12/2023",
+        tags: ["Python", "Django","JavaScript", "HTML", "Tailwind CSS", "SQLite3"]
+    },
+    {
+        title: "Face Recognition",
+        description: "Biometric Facial Recognition System for access control to a company, by recognizing the faces of employees, the system allows access to the company's facilities.",
+        image: {
+            Img1: "../../public/img/projects/FACE1.jpg",
+            Img2: "../../public/img/projects/FACE2.jpg",
+            Img3: "../../public/img/projects/DetailFACE.jpg",
+        },
+        date: "17/07/2023 - 17/01/2024",
+        tags: ["Python", "OpenCV", "MediaPipe", "Gpio", "SQLite3"]
+    },
+    {
+        title: "Image Classifier",
+        description: "Cat and dog image classifier, using convolutional neural networks, with an accuracy of more than 90%.",
+        image: {
+            Img1: "../../public/img/projects/Clasificiacion1.PNG",
+            Img2: "../../public/img/projects/Clasificacion2.PNG",
+            Img3: "../../public/img/projects/ClasificacionGal.png",
+        },
+        date: "17/07/2023 - 17/01/2024",
+        tags: ["Python", "TensorFlow", "Keras", "Numpy", "Matplotlib"]
+    },
+    {
+        title: "SGNAN Stock Control",
+        description: "Stock control system for the SGNAN company, the system allows you to keep track of the stocks of the company's products, as well as keep track of the sales and purchases of the products..",
+        image: {
+            Img1: "../../public/img/projects/sgnan1.PNG",
+            Img2: "../../public/img/projects/sgnan2.PNG",
+            Img3: "../../public/img/projects/sgnan3.PNG",
+        },
+        date: "01/02/2023 - 01/06/2023",
+        tags: ["PHP", "Laravel", "JavaScript", "HTML", "CSS", "Bootstrap5" , "MySQL"]
+    }
+
+]
+
+const {class: className, id} = Astro.props
+---
+
+<section id={id} class="w-full lg:w-[740px] mx-auto pb-24">
+    <ol class="relative border-s border-gray-200 dark:border-gray-700">
+        {
+            PROJECTS.map(({title, description, image, date, tags}) => (
+
+            
+           
+                <li class="mb-10 ms-6">
+                    <span class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white dark:ring-gray-900 dark:bg-blue-900">
+                        <svg class="w-2.5 h-2.5 text-blue-800 dark:text-blue-300" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"/>
+                        </svg>
+                    </span>
+                    <h3 class="flex items-center mb-1 text-lg font-bold dark:text-white" style="color: #f9532d; font-size: 1.8rem;">{title}</h3>
+                    <time  class="">{date}</time>
+
+                    <p class="mb-4 text-base font-normal text-white-500 dark:text-gray-400" >{description}</p>
+                   <!-- <img src={image.Img1} alt="">--> 
+                    <ul class="flex gap-x-2 flex-row">
+                        {
+                            tags.map(tag => (
+                                
+                                <li>
+                                    <span class="flex gap-x-2 rounded-full text-xs py-1 px-2 bg-blue-500 text-black font-semibold">
+                                        {tag }
+                                    </span>
+                                </li>
+                            ))
+                        }
+                    </ul>
+                </li>
+            ))
+        }
+        <slot />
+    </ol>
+</section>
+
+<style>
+    /* Genral */
+    .container {
+    padding: 0 8.4rem;
+    }
+
+
+    /* Section 1 */
+    .main {
+    padding: 6rem 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(277px, 1fr));
+    row-gap: 2rem;
+    column-gap: 6rem;
+    align-items: center;
+    }
+</style>

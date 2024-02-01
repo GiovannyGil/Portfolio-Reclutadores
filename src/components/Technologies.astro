@@ -1,0 +1,88 @@
+---
+export const TECHNOLOGIES = [
+    {
+        Name: "Django",
+        Porcent: "50%",
+        Icon: "../../public/img/tools/Django.png",
+    },
+    {
+        Name: "TypeScript",
+        Porcent: "50%",
+        Icon: "../../public/img/tools/TS.png",
+    },
+    {
+        Name: "Angular",
+        Porcent: "20%",
+        Icon: "../../public/img/tools/Angular.png",
+    },
+    {
+        Name: "NestJS",
+        Porcent: "30%",
+        Icon: "../../public/img/tools/NestJS.png",
+    },
+    {
+        Name: ".NET",
+        Porcent: "15%",
+        Icon: "../../public/img/tools/NET.png",
+    },
+    {
+        Name: "OpenCV",
+        Porcent: "10%",
+        Icon: "../../public/img/tools/OpenCV.png",
+    },
+    {
+        Name: "Face Recognition",
+        Porcent: "10%",
+        Icon: "../../public/img/tools/F_R.png",
+    },
+    {
+        Name: "Mediapipe",
+        Porcent: "10%",
+        Icon: "../../public/img/tools/pipe.png",
+    },
+    {
+        Name: "TensorFlow",
+        Porcent: "10%",
+        Icon: "../../public/img/tools/Tensorflow.png",
+    },
+    {
+        Name: "Numpy",
+        Porcent: "10%",
+        Icon: "../../public/img/tools/Numpy.png",
+    },
+    {
+        Name: "Pandas",
+        Porcent: "10%",
+        Icon: "../../public/img/tools/Pandas.png",
+    },
+    {
+        Name: "Matplotlib",
+        Porcent: "10%",
+        Icon: "../../public/img/tools/matplotlib.png",
+    },
+    {
+        Name: "SeaBorn",
+        Porcent: "10%",
+        Icon: "../../public/img/tools/seaborn.png",
+    },
+]
+---
+<section class='stock-watchlist-container'>
+    <h2 class="titulo">Techologies</h2>
+    <div id="stocks">
+        {
+            TECHNOLOGIES.map(({Name, Porcent, Icon}) => (
+                <article class="stock-row">
+                    <img class="stock-avatar" src={Icon} alt="Postman">
+                    <div class="stock-name">
+                        <h3>{Name}</h3>
+                    </div>
+                    
+                    <div class="stock-info">
+                        <p class="change">{Porcent}</p>
+                    </div>
+                </article>
+            ))
+        }
+    </div>
+</section>

@@ -1,0 +1,35 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Tools.astro';
+import SectionContainer from '../components/SectionContainer.astro';
+import Projects from '../components/Projects.astro';
+import Tools from '../components/Cards.astro';
+import Cards from '../components/Cards.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Giovanny"
+ description='Giovanny is a software engineer based in Medellín, Colombia. He is a full-stack developer with experience in Angular, Node.js, and Python.'
+>
+	<body>
+		<main>
+			<SectionContainer id="Home" />
+			<Projects id="Projects" />
+			<Cards id="Tools" />
+		</main>
+	</body>
+</Layout>
+
+<style>
+	
+	body {
+	font-family: 'Outfit', sans-serif;
+	height: 100vh;
+	color: #ffffff;
+	background-color: #1F252E;
+	}
+	body{
+		
+	}
+
+</style>
