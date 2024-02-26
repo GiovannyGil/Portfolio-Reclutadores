@@ -1,33 +1,6 @@
 ---
-export const LENGUAGES = [
-    {
-        Name: "Python",
-        Porcent: "75%",
-        Icon: "../../public/img/tools/Python.png",
-    },
-    {
-        Name: "JavaScrip",
-        Porcent: "50%",
-        Icon: "../../public/img/tools/JS.png",
-    },
-    {
-        Name: "PHP",
-        Porcent: "40%",
-        Icon: "../../public/img/tools/PHP.png",
-    },
-    {
-        Name: "C#",
-        Porcent: "90%",
-        Icon: "../../public/img/tools/CS.png",
-    },
-    {
-        Name: "SQL",
-        Porcent: "65%",
-        Icon: "../../public/img/tools/SQL.png",
-    },
-    
-]
 
+import { LENGUAGES } from './models/Lenguages.model.js'
 import "../../public/css/cards/style.css"
 
 const {class: className, id} = Astro.props
@@ -36,15 +9,15 @@ const {class: className, id} = Astro.props
     <h2 class="titulo">Lenguages</h2>
     <div id="stocks">
         {
-            LENGUAGES.map(({Name, Porcent, Icon}) => (
+            LENGUAGES.map(({Name, Level, Icon}) => (
                 <article class="stock-row">
-                    <img class="stock-avatar" src={Icon} alt="Postman">
+                     <Icon class="stock-avatar"></Icon>
                     <div class="stock-name">
                         <h3>{Name}</h3>
                     </div>
                     
                     <div class="stock-info">
-                        <p class="change">{Porcent}</p>
+                        <p class="change" style={`background-color: ${Level.color};`}>{Level.lvl}</p>
                     </div>
                 </article>
             ))

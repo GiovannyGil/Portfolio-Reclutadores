@@ -1,41 +1,5 @@
 ---
-const TOOLS = [
-    {
-        Name: "Postman",
-        Porcent: "50%",
-        Icon: "../../public/img/tools/Postman.png"
-    },
-    {
-        Name: "Figma",
-        Porcent: "40%",
-        Icon: "../../public/img/tools/Figma.png"
-    },
-    {
-        Name: "VSCode",
-        Porcent: "75%",
-        Icon: "../../public/img/tools/VSC.png"
-    },
-    {
-        Name: "Github",
-        Porcent: "50%",
-        Icon: "../../public/img/tools/GitHub.png"
-    },
-    {
-        Name: "SQL Server",
-        Porcent: "45%",
-        Icon: "../../public/img/tools/SQLServer.png"
-    },
-    {
-        Name: "MySQL",
-        Porcent: "45%",
-        Icon: "../../public/img/tools/MySQL.png"
-    },
-    {
-        Name: "SQLite3",
-        Porcent: "45%",
-        Icon: "../../public/img/tools/Sqlite.png"
-    }
-]
+import { TOOLS } from './models/Tools.model.js'
 
 import "../../public/css/cards/style.css"
 ---
@@ -43,15 +7,15 @@ import "../../public/css/cards/style.css"
     <h2 class="titulo">Tools</h2>
     <div id="stocks">
         {
-            TOOLS.map(({Name, Porcent, Icon}) => (
+            TOOLS.map(({Name, Level, Icon}) => (
                 <article class="stock-row">
-                    <img class="stock-avatar" src={Icon} alt="Postman">
+                    <Icon class="stock-avatar"></Icon>
                     <div class="stock-name">
                         <h3>{Name}</h3>
                     </div>
                     
                     <div class="stock-info">
-                        <p class="change">{Porcent}</p>
+                        <p class="change" style={`background-color: ${Level.color};`}>{Level.level}</p>
                     </div>
                 </article>
             ))

@@ -190,7 +190,7 @@
             padding: 0 4.4rem;
         }
         .main h3 {
-            color: #000;
+            color: #fff;
             margin-top: 1rem;
         }
         }
@@ -215,7 +215,7 @@
         }
         header {
             height: auto;
-            background-color: var(--primary-dark);
+            background-color: #fff;
         }
         
         
