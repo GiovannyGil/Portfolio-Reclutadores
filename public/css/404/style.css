@@ -227,6 +227,7 @@ li a:hover {
     background-repeat: repeat;
     background-size: contain;
     background-position: left top;
+    height: 100%;
 }
 
 .glowing_stars .star{

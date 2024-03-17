@@ -29,6 +29,33 @@
         animation: leftSideAni 1s ease forwards;
         animation-delay: 1s;
         }
+
+        
+        /* efecto de slide */
+        .efecto{
+            display: grid;
+            font-family: "Oswald", sans-serif;
+        }
+        
+        .efecto > h1 {
+            grid-area: 1/1/-1/-1;
+        }
+        .top {
+            clip-path: polygon(0% 0%, 100% 0%, 100% 45%, 0% 55%);
+            /* color: black; */
+        }
+        
+        .bottom {
+            clip-path: polygon(0% 60%, 100% 50%, 100% 100%, 0% 100%);
+            color: transparent;
+            background: -webkit-linear-gradient(177deg, #000 53%, #fff 65%);
+            background: linear-gradient(177deg, black 53%, #fff 65%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            transform: translateX(-0.02em);
+            filter: drop-shadow(0 0 0.05em black);
+        }  
+
         .images {
         margin-left: auto;
         width: 300px;
@@ -75,9 +102,10 @@
         }
         .icon-block img {
         margin: 0px auto;
-        width: 60%;
+        width: 100%;
         animation: Rotate-reverse 20s linear infinite;
         -webkit-animation: Rotate-reverse 20s linear infinite;
+        border-radius: 25px;
         }
         .icon-block:first-child {
         top: 0;
@@ -184,8 +212,7 @@
             opacity: 1;
         }
         }
-        
-        @media screen and (max-width: 1024px) {
+        @media screen and (max-width: 1536px) {
         .container {
             padding: 0 4.4rem;
         }
@@ -194,7 +221,7 @@
             margin-top: 1rem;
         }
         }
-        @media screen and (max-width: 990px) {
+        @media screen and (max-width: 1280px) {
         .main {
             grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
         }

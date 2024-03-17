@@ -1,13 +1,13 @@
 ---
-// modelo/interface -> "tabla" de nivel de conocimiento
+import { TOOLS } from '../models/Tools.model.js'
 
-import { TECHNOLOGIES } from './models/Technologies.model.js'
+import "../../public/css/cards/style.css"
 ---
 <section class='stock-watchlist-container'>
-    <h2 class="titulo">Techologies</h2>
+    <h2 class="titulo">Tools</h2>
     <div id="stocks">
         {
-            TECHNOLOGIES.map(({Name, Level, clase, Icon}) => (
+            TOOLS.map(({Name, Level, Icon}) => (
                 <article class="stock-row">
                     <Icon class="stock-avatar"></Icon>
                     <div class="stock-name">
@@ -15,10 +15,11 @@ import { TECHNOLOGIES } from './models/Technologies.model.js'
                     </div>
                     
                     <div class="stock-info">
-                        <p class="change" style={`background-color: ${clase};`}>{Level}</p>
+                        <p class="change" style={`background-color: ${Level.color};`}>{Level.level}</p>
                     </div>
                 </article>
             ))
         }
     </div>
 </section>
+

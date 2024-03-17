@@ -1,0 +1,104 @@
+---
+import { TOOLS } from './models/Tools.model.js'
+
+// import '../../public/css/slide/style.css'
+---
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const slideTrack = document.querySelector(".slide-trackTo");
+    const slides = document.querySelectorAll(".slideTo");
+
+    // Clonar las imágenes para crear el efecto infinito
+    slides.forEach(function(slide) {
+        const cloneSlide = slide.cloneNode(true);
+        slideTrack.appendChild(cloneSlide);
+        // slideTrack.appfirstChild(slide.cloneNode(true));
+    });
+
+    // Animación del carrusel
+    let position = 0;
+    const slideWidth = slides[0].offsetWidth;
+
+    function moveSlides() {
+        position -= slideWidth;
+        slideTrack.style.transition = "transform 0.5s ease-in-out";
+        slideTrack.style.transform = "translateX(" + position + "px)";
+
+        // Cuando todas las imágenes originales se hayan desplazado fuera del carrusel, resetear la posición
+        if (position <= -slideWidth * slides.length) {
+            setTimeout(function() {
+                position = 0;
+                slideTrack.style.transition = "none";
+                slideTrack.style.transform = "translateX(" + position + "px)";
+            }, 500);
+        }
+    }
+
+    setInterval(moveSlides, 3000); // Intervalo de cambio de imágenes (ajustar según sea necesario)
+});
+  </script>
+  
+  <style>
+    .sliderTo {
+      width: 75vw;
+      height: auto;
+      margin: auto;
+      overflow: hidden;
+      mask: linear-gradient(
+        90deg,
+        transparent,
+        white 20%,
+        white 80%,
+        transparent
+      );
+      opacity: 0.9; /* Initially hide all slides */
+      
+  }
+  
+  .sliderTo .slide-trackTo {
+      display: flex;
+      animation: scroll 40s linear infinite;
+      -webkit-animation: scroll 40s linear infinite;
+      width: calc(200px * 14);
+      margin: 0 0 50px 0px;
+  
+  }
+  
+  .sliderTo .slideTo {
+      width: 200px;
+      /* background-color: aqua; */
+  }
+  
+  .sliderTo .slideTo .imagenesTo {
+      width: 100%;
+      padding: 1rem 0;
+      width: 100px;
+      max-width: 100px;
+      height: 100px;
+      max-height: 100px;
+  }
+  @keyframes scroll {
+      0% {
+          -webkit-transform: translateX(0);
+          transform: translateX(0);
+      }
+      100% {
+          -webkit-transform: translateX(calc(-200px * 7));
+          transform: translateX(calc(-200px * 7));
+          /* esto sirve para la animacion de movimiento en el eje x hacia la izquierda */
+      }
+  }
+  </style>
+
+<div class="sliderTo">
+  <div class="slide-trackTo">
+    {
+      TOOLS.map(({ Icon }) => (
+        <div class="slideTo">
+          <Icon class="imagenesTo" />
+        </div>
+      ))
+    }
+  </div>
+</div>

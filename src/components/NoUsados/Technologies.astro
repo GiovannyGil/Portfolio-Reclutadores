@@ -1,27 +1,24 @@
 ---
+// modelo/interface -> "tabla" de nivel de conocimiento
 
-import { LENGUAGES } from './models/Lenguages.model.js'
-import "../../public/css/cards/style.css"
-
-const {class: className, id} = Astro.props
+import { TECHNOLOGIES } from '../models/Technologies.model.js'
 ---
 <section class='stock-watchlist-container'>
-    <h2 class="titulo">Lenguages</h2>
+    <h2 class="titulo">Techologies</h2>
     <div id="stocks">
         {
-            LENGUAGES.map(({Name, Level, Icon}) => (
+            TECHNOLOGIES.map(({Name, Level, clase, Icon}) => (
                 <article class="stock-row">
-                     <Icon class="stock-avatar"></Icon>
+                    <Icon class="stock-avatar"></Icon>
                     <div class="stock-name">
                         <h3>{Name}</h3>
                     </div>
                     
                     <div class="stock-info">
-                        <p class="change" style={`background-color: ${Level.color};`}>{Level.lvl}</p>
+                        <p class="change" style={`background-color: ${clase};`}>{Level}</p>
                     </div>
                 </article>
             ))
         }
     </div>
 </section>
-

@@ -1,21 +1,23 @@
 ---
-import { TOOLS } from './models/Tools.model.js'
 
+import { LENGUAGES } from '../models/Lenguages.model.js'
 import "../../public/css/cards/style.css"
+
+const {class: className, id} = Astro.props
 ---
 <section class='stock-watchlist-container'>
-    <h2 class="titulo">Tools</h2>
+    <h2 class="titulo">Lenguages</h2>
     <div id="stocks">
         {
-            TOOLS.map(({Name, Level, Icon}) => (
+            LENGUAGES.map(({Name, Level, Icon}) => (
                 <article class="stock-row">
-                    <Icon class="stock-avatar"></Icon>
+                     <Icon class="stock-avatar"></Icon>
                     <div class="stock-name">
                         <h3>{Name}</h3>
                     </div>
                     
                     <div class="stock-info">
-                        <p class="change" style={`background-color: ${Level.color};`}>{Level.level}</p>
+                        <p class="change" style={`background-color: ${Level.color};`}>{Level.lvl}</p>
                     </div>
                 </article>
             ))
