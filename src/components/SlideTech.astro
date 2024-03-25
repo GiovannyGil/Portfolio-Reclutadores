@@ -1,11 +1,11 @@
 ---
 import { TECHNOLOGIES } from "./models/Technologies.model"
 
-// import '../../public/css/slide/style.css'
+import '../../public/css/slide/style.css'
 
 ---
 
-<script>
+<!-- <script>
 document.addEventListener("DOMContentLoaded", function() {
     const slideTrack = document.querySelector(".slide-trackTe");
     const slides = document.querySelectorAll(".slideTe");
@@ -39,64 +39,23 @@ document.addEventListener("DOMContentLoaded", function() {
     setInterval(moveSlides, 3000); // Intervalo de cambio de imágenes (ajustar según sea necesario)
 });
   </script>
-  
+   -->
 
 <style>
-  .sliderTe {
-    width: 75vw;
-    height: auto;
-    margin: auto;
-    overflow: hidden;
-    mask: linear-gradient(
-      90deg,
-      transparent,
-      white 20%,
-      white 80%,
-      transparent
-    );
-    opacity: 0.9; /* Initially hide all slides */
-    
-}
-
-.sliderTe .slide-trackTe {
-    display: flex;
-    animation: scroll 40s linear infinite;
-    -webkit-animation: scroll 40s linear infinite;
-    width: calc(200px * 14);
-    margin: 0 0 50px 0px;
-
-}
-
-.sliderTe .slideTe {
-    width: 200px;
-    /* background-color: aqua; */
-}
-
-.sliderTe .slideTe .imagenesTe {
-    width: 100%;
-    padding: 1rem 0;
-    width: 100px;
-    max-width: 100px;
-    height: 100px;
-    max-height: 100px;
-}
-@keyframes scroll {
-    0% {
-        -webkit-transform: translateX(0);
-        transform: translateX(0);
-    }
-    100% {
-        -webkit-transform: translateX(calc(-200px * 7));
-        transform: translateX(calc(-200px * 7));
-        /* esto sirve para la animacion de movimiento en el eje x hacia la izquierda */
-    }
-}
+  
 </style>
 
 
 
 <div class="sliderTe">
   <div class="slide-trackTe">
+    {
+      TECHNOLOGIES.map(({ Icon }) => (
+        <div class="slideTe">
+          <Icon class="imagenesTe" />
+        </div>
+      ))
+    }
     {
       TECHNOLOGIES.map(({ Icon }) => (
         <div class="slideTe">

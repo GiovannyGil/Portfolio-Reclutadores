@@ -5,7 +5,7 @@ import '../../public/css/slide/style.css'
 
 ---
 
-<script>
+<!-- <script>
 document.addEventListener("DOMContentLoaded", function() {
     const slideTrack = document.querySelector(".slide-track");
     const slides = document.querySelectorAll(".slide");
@@ -38,11 +38,18 @@ document.addEventListener("DOMContentLoaded", function() {
 
     setInterval(moveSlides, 3000); // Intervalo de cambio de imágenes (ajustar según sea necesario)
 });
-</script>
+</script> -->
 
 
 <div class="slider">
   <div class="slide-track">
+    {
+      LENGUAGES.map(({ Icon }) => (
+        <div class="slide">
+          <Icon class="imagenes" />
+        </div>
+      ))
+    }
     {
       LENGUAGES.map(({ Icon }) => (
         <div class="slide">
