@@ -8,6 +8,7 @@ import SQLServer from "../Icons/Tools/SQLServer.astro";
 import VSC from "../Icons/Tools/VSC.astro";
 import MongoDB from "../Icons/Tools/mongoDB.astro";
 import Sqlite from "../Icons/Tools/sqlite.astro";
+import AndroidStudio from "../Icons/Tools/AndroidStudio.astro";
 import { LEVEL } from "./Level.model.js";
 
 
@@ -26,7 +27,7 @@ export const TOOLS = [
     {
         Name: "VSCode",
         Level: LEVEL.Avanzado,
-        Icon:  VSC
+        Icon: VSC
     },
     {
         Name: "Discord",
@@ -42,6 +43,11 @@ export const TOOLS = [
         Name: "Github",
         Level: LEVEL.Intermedio,
         Icon: Github
+    },
+    {
+        Name: "Android Studio",
+        Level: LEVEL.IntermedioAvanzado,
+        Icon: AndroidStudio
     },
     {
         Name: "SQL Server",

@@ -5,42 +5,6 @@ import '/public/css/slide/style.css'
 
 ---
 
-<!-- <script>
-document.addEventListener("DOMContentLoaded", function() {
-    const slideTrack = document.querySelector(".slide-trackTe");
-    const slides = document.querySelectorAll(".slideTe");
-
-    // Clonar las imágenes para crear el efecto infinito
-    slides.forEach(function(slide) {
-        const cloneSlide = slide.cloneNode(true);
-        slideTrack.appendChild(cloneSlide);
-        // slideTrack.appfirstChild(slide.cloneNode(true));
-    });
-
-    // Animación del carrusel
-    let position = 0;
-    const slideWidth = slides[0].offsetWidth;
-
-    function moveSlides() {
-        position -= slideWidth;
-        slideTrack.style.transition = "transform 0.5s ease-in-out";
-        slideTrack.style.transform = "translateX(" + position + "px)";
-
-        // Cuando todas las imágenes originales se hayan desplazado fuera del carrusel, resetear la posición
-        if (position <= -slideWidth * slides.length) {
-            setTimeout(function() {
-                position = 0;
-                slideTrack.style.transition = "none";
-                slideTrack.style.transform = "translateX(" + position + "px)";
-            }, 500);
-        }
-    }
-
-    setInterval(moveSlides, 3000); // Intervalo de cambio de imágenes (ajustar según sea necesario)
-});
-  </script>
-   -->
-
 <style>
   
 </style>

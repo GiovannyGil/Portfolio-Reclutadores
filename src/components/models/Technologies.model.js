@@ -7,6 +7,7 @@ import React from "../Icons/Technologies/React.astro";
 import TypeScript from "../Icons/Technologies/TypeScript.astro";
 import Dotnet from "../Icons/Technologies/dotnet.astro";
 import Tailwindcss from "../Icons/Technologies/tailwindcss.astro";
+import Ionic from "../Icons/Technologies/Ionic.astro";
 import { LEVEL } from "./Level.model.js";
 
 
@@ -17,7 +18,7 @@ export const TECHNOLOGIES = [
         Level: LEVEL.Intermedio.level,
         clase: LEVEL.Intermedio.color,
         Icon: Tailwindcss
-    },{
+    }, {
         Name: "Django",
         Level: LEVEL.Intermedio.level,
         clase: LEVEL.Intermedio.color,
@@ -28,6 +29,12 @@ export const TECHNOLOGIES = [
         Level: LEVEL.IntermedioBasico.level,
         clase: LEVEL.IntermedioBasico.color,
         Icon: TypeScript
+    },
+    {
+        Name: "Ionic",
+        Level: LEVEL.IntermedioAvanzado.level,
+        clase: LEVEL.IntermedioAvanzado.color,
+        Icon: Ionic
     },
     {
         Name: "Angular",
@@ -58,11 +65,5 @@ export const TECHNOLOGIES = [
         Level: LEVEL.Basico.level,
         clase: LEVEL.Basico.color,
         Icon: Nestjs
-    },
-    {
-        Name: ".NET",
-        Level: LEVEL.Basico.level,
-        clase: LEVEL.Basico.color,
-        Icon: Dotnet
     },
 ]

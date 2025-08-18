@@ -1,26 +1,30 @@
 ---
+const userLang = navigator.language.startsWith("es") ? "es" : "en";
+import { translations } from "./models/idioma.js";
+
+
 const navItems = [
   {
-    title: "Home",
-    label: "Home",
+    title: translations[userLang]?.menu?.home,
+    label: translations[userLang]?.menu?.home,
     url: "/#Home",
   },
   {
-    title: "Projects",
-    label: "Projects",
+    title: translations[userLang]?.menu?.projects,
+    label: translations[userLang]?.menu?.projects,
     url: "/#Projects",
   },
   {
-    title: "Tools",
-    label: "Tools",
+    title: translations[userLang]?.menu?.tools,
+    label: translations[userLang]?.menu?.tools,
     url: "/#Tools",
   },
   {
-    title: "Footer",
-    label: "Footer",
+    title: translations[userLang]?.menu?.footer,
+    label: translations[userLang]?.menu?.footer,
     url: "/#Footer",
-  }
-]
+  },
+];
 ---
 
 <header
@@ -45,44 +49,44 @@ const navItems = [
 
 <script>
   document.addEventListener("astro:page-load", () => {
-    const sections = document.querySelectorAll("section")
-    const navItems = document.querySelectorAll("header nav a")
+    const sections = document.querySelectorAll("section");
+    const navItems = document.querySelectorAll("header nav a");
 
     const callback = (entries: any[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           navItems.forEach((item) => {
             if (item.getAttribute("aria-label") == entry.target.id) {
-              item.classList.add("text-yellow-500")
+              item.classList.add("text-yellow-500");
             } else {
-              item.classList.remove("text-yellow-500")
+              item.classList.remove("text-yellow-500");
             }
-          })
+          });
         }
-      })
-    }
+      });
+    };
 
     const observer = new IntersectionObserver(callback, {
       root: null,
       rootMargin: "0px",
       threshold: 0.3,
-    })
+    });
 
     sections.forEach((section) => {
-      observer.observe(section)
-    })
+      observer.observe(section);
+    });
 
     // Cleanup function
     document.onvisibilitychange = () => {
       if (document.visibilityState === "hidden") {
-        observer.disconnect()
+        observer.disconnect();
       } else {
         sections.forEach((section) => {
-          observer.observe(section)
-        })
+          observer.observe(section);
+        });
       }
-    }
-  })
+    };
+  });
 </script>
 
 <style>
