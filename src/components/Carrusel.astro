@@ -5,17 +5,12 @@ import SlideTech from "./SlideTech.astro";
 import SlideLenguahes from "./SlideTools.astro";
 
 import "/public/css/slide/carrusel.css";
-
-const userLang = navigator.language.startsWith("es") ? "es" : "en";
-import { translations } from "./models/idioma.js";
 ---
 
 <div class="container" id="Tools">
   <h1
     class="text-4xl font-bold text-white-800 dark:text-gray-100 text-center mb-4 pt-5"
-  >
-    {translations[userLang]?.titulos?.tools}
-  </h1>
+  > Herramientas </h1>
   <SlideTools />
   <SlideTech />
   <SlideLenguahes />

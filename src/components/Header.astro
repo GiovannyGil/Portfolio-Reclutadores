@@ -1,27 +1,25 @@
 ---
-const userLang = navigator.language.startsWith("es") ? "es" : "en";
-import { translations } from "./models/idioma.js";
 
 
 const navItems = [
   {
-    title: translations[userLang]?.menu?.home,
-    label: translations[userLang]?.menu?.home,
+    title: "Inicio",
+    label: "Inicio",
     url: "/#Home",
   },
   {
-    title: translations[userLang]?.menu?.projects,
-    label: translations[userLang]?.menu?.projects,
+    title: "Proyectos",
+    label: "Proyectos",
     url: "/#Projects",
   },
   {
-    title: translations[userLang]?.menu?.tools,
-    label: translations[userLang]?.menu?.tools,
+    title: "Herramientas",
+    label: "Herramientas",
     url: "/#Tools",
   },
   {
-    title: translations[userLang]?.menu?.footer,
-    label: translations[userLang]?.menu?.footer,
+    title: "Footer",
+    label: "Footer",
     url: "/#Footer",
   },
 ];

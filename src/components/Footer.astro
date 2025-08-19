@@ -1,86 +1,117 @@
 ---
-const {class:  id} = Astro.props
+const { class: id } = Astro.props;
 ---
-<div style="height: 150px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M-3.67,-5.41 C186.51,327.14 224.32,-157.38 501.97,75.50 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #000;"></path></svg></div>
-<div style="height: 250px; background-color: #000;" id={id}>
-    <footer class="pie-pagina" id="Footer">
-        <div class="grupo-1">
-            <div class="box">
-                <figure>
-                    <a href="">
-                        <img src="https://avatars.githubusercontent.com/u/102708414?v=4" alt="">
-                    </a>
-                </figure>
-            </div>
-            <div class="box">
-                <h2>About</h2>
-                <p>Hi, There!, I'm
-                    Giovanny Chica
-                    I have 1 year of experience in SOFTWARE and WEB Developer of Medellín, Colombia. I am a person with a lot of desire to learn and grow in the area of ​​software development, who likes to work as a team and very responsible with my work, who likes to learn new things every day and I am always willing to help my colleagues.</p>
-                <p>This website was built with the javascript framework for static sites (ASTRO 4)</p>
-            </div>
-            <div class="box">
-                <h2>Contact ME!</h2>
-                <div class="red-social">
-                    <a href="https://www.linkedin.com/in/giovannyc-gil/" target="_blank"  class="fa-brands fa-linkedin-in"></a>
-                    <a href="https://www.instagram.com/giovannychica/" target="_blank" class="fa fa-instagram"></a>
-                    <a href="https://wa.me/573043209834" target="_blank" class="fa-brands fa-whatsapp"></a>
-                    <a href="https://github.com/GiovannyGil/" target="_blank" class="fa-brands fa-github"></a>
-                    <a href="mailto:arvey950@gmail.com" target="_blank"
-                    class="fa-solid fa-envelope"></a>
-                </div>
-            </div>
-        </div>
-        
-    </footer>
+
+<div style="height: 150px; overflow: hidden;">
+  <svg
+    viewBox="0 0 500 150"
+    preserveAspectRatio="none"
+    style="height: 100%; width: 100%;"
+    ><path
+      d="M-3.67,-5.41 C186.51,327.14 224.32,-157.38 501.97,75.50 L500.00,150.00 L0.00,150.00 Z"
+      style="stroke: none; fill: #000;"></path></svg
+  >
 </div>
-<script src="https://kit.fontawesome.com/58fd1432fe.js" crossorigin="anonymous"></script>
+<div style="height: 250px; background-color: #000;" id={id}>
+  <footer class="pie-pagina" id="Footer">
+    <div class="grupo-1">
+      <div class="box">
+        <figure>
+          <a href="">
+            <img
+              src="https://avatars.githubusercontent.com/u/102708414?v=4"
+              alt=""
+            />
+          </a>
+        </figure>
+      </div>
+      <div class="box">
+        <h2>Sobre mí</h2>
+        <p>
+          Soy de Medellín, Colombia, tengo experiencia como desarrollador de
+          SOFTWARE. Soy una persona con muchas ganas de aprender y crecer en el
+          área de desarrollo de software, que le gusta trabajar en equipo y es
+          muy responsable con su trabajo, que le gusta aprender cosas nuevas
+          cada día y siempre está dispuesto a ayudar a sus compañeros.
+        </p>
+      </div>
+      <div class="box">
+        <h2>Contáctame</h2>
+        <div class="red-social">
+          <a
+            href="https://www.linkedin.com/in/giovannyc-gil/"
+            target="_blank"
+            class="fa-brands fa-linkedin-in"></a>
+          <a
+            href="https://www.instagram.com/giovannychica/"
+            target="_blank"
+            class="fa fa-instagram"></a>
+          <a
+            href="https://wa.me/573043209834"
+            target="_blank"
+            class="fa-brands fa-whatsapp"></a>
+          <a
+            href="https://github.com/GiovannyGil/"
+            target="_blank"
+            class="fa-brands fa-github"></a>
+          <a
+            href="mailto:arvey950@gmail.com"
+            target="_blank"
+            class="fa-solid fa-envelope"></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+<script src="https://kit.fontawesome.com/58fd1432fe.js" crossorigin="anonymous"
+></script>
 <style>
-    
-.pie-pagina{
+  .pie-pagina {
     width: 100%;
     height: auto;
     background-color: #000;
-}
+  }
 
-.pie-pagina .grupo-1{
+  .pie-pagina .grupo-1 {
     width: 100%;
     max-width: 1200%;
     margin: auto;
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /*establece las columnas y el ancho, 3 columnas y todo el ancho*/
+    grid-template-columns: repeat(
+      3,
+      1fr
+    ); /*establece las columnas y el ancho, 3 columnas y todo el ancho*/
     grid-gap: 50px;
     padding: 45px 0px;
-}
-.pie-pagina .grupo-1 .box figure {
+  }
+  .pie-pagina .grupo-1 .box figure {
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center; /*centrar horizontalmente*/
     align-items: center; /*centrar verticalmente*/
-}
+  }
 
-.pie-pagina .grupo-1 .box figure img {
+  .pie-pagina .grupo-1 .box figure img {
     width: 250px;
     border-radius: 50%;
     transition: transform 0.5s ease; /* Agregado para la transición suave durante 0.5 segundos */
-}
+  }
 
-.pie-pagina .grupo-1 .box figure img:hover {
+  .pie-pagina .grupo-1 .box figure img:hover {
     transform: scale(1.15);
-}
+  }
 
-.pie-pagina .grupo-1 .box h2{
+  .pie-pagina .grupo-1 .box h2 {
     color: #fff;
-    margin-bottom: 25px ;
+    margin-bottom: 25px;
     font-size: 35px;
-
-}
-.pie-pagina .grupo-1 .box p{
+  }
+  .pie-pagina .grupo-1 .box p {
     color: #efefef;
     margin-bottom: 10px;
-}
-.pie-pagina .grupo-1 .red-social a{
+  }
+  .pie-pagina .grupo-1 .red-social a {
     display: inline-block;
     text-decoration: none;
     width: 45px;
@@ -90,23 +121,26 @@ const {class:  id} = Astro.props
     margin-right: 10px;
     text-align: center;
     transition: all 300ms ease;
-}
-.pie-pagina .grupo-1 .red-social a:hover{
+  }
+  .pie-pagina .grupo-1 .red-social a:hover {
     transform: scale(1.15);
     color: #f9532d;
-    
-}
-.pie-pagina .grupo-2{
+  }
+  .pie-pagina .grupo-2 {
     padding: 15px;
-    text-align: center  ;
+    text-align: center;
     background-color: #151414a6;
-}
-@media screen and (max-width:800px) { /*para ponerlo responsive, visible bien en celular*/
-    .pie-pagina .grupo-1{
-        width: 90%;
-        grid-template-columns: repeat(1, 1fr); /*establece las columnas y el ancho, 3 columnas y todo el ancho*/
-        grid-gap: 30px;
-        padding: 35px 0px;
+  }
+  @media screen and (max-width: 800px) {
+    /*para ponerlo responsive, visible bien en celular*/
+    .pie-pagina .grupo-1 {
+      width: 90%;
+      grid-template-columns: repeat(
+        1,
+        1fr
+      ); /*establece las columnas y el ancho, 3 columnas y todo el ancho*/
+      grid-gap: 30px;
+      padding: 35px 0px;
     }
-}
+  }
 </style>

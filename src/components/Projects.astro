@@ -1,29 +1,27 @@
 ---
 // list of projects
-const userLang = navigator.language.startsWith("es") ? "es" : "en";
-import { translations } from "./models/idioma.js";
 
 const PROJECTS = [
   {
-    title: translations[userLang]?.descripcionProyectos?.proyecto3?.titulo,
+    title: "Reconocimiento Facial",
     description:
-      translations[userLang]?.descripcionProyectos?.proyecto3?.descripcion,
+      "Sistema de Reconocimiento Facial Biométrico para control de acceso a una empresa, mediante el reconocimiento de los rostros de los empleados, el sistema permite el acceso a las instalaciones de la empresa.",
     image: "/projects/FACE.webp",
     date: "17/07/2023 - 17/01/2024",
     tags: ["Python", "OpenCV", "MediaPipe", "Gpio", "SQLite3"],
   },
   {
-    title: translations[userLang]?.descripcionProyectos?.proyecto2?.titulo,
+    title: "Clasificación de Imágenes",
     description:
-      translations[userLang]?.descripcionProyectos?.proyecto2?.descripcion,
+      "Sistema de clasificación de imágenes utilizando técnicas de aprendizaje automático, con un modelo de clasificación de imágenes predictivo para aplicación móvil para clasificar tipos de madera, con una precisión de más del 90%.",
     image: "/projects/ClasificacionGal.webp",
     date: "17/07/2023 - 17/01/2024",
     tags: ["Python", "TensorFlow", "Keras", "Numpy", "Matplotlib"],
   },
   {
-    title: translations[userLang]?.descripcionProyectos?.proyecto1?.titulo,
+    title: "SGNAN Control",
     description:
-      translations[userLang]?.descripcionProyectos?.proyecto1?.descripcion,
+      "Sistema de control de stock para la empresa SGNAN, el sistema permite llevar el control de los stocks de los productos de la empresa, así como llevar el control de las ventas y compras de los productos.",
     image: "/projects/sgnan.webp",
     date: "01/02/2023 - 01/06/2023",
     tags: [
@@ -43,9 +41,7 @@ const PROJECTS = [
 
 <h2
   class="text-4xl font-bold text-white-800 dark:text-gray-100 text-center mb-4"
->
-  {translations[userLang]?.titulos?.projects}
-</h2>
+> Proyectos y experiencias </h2>
 <section
   class="scroll-m-20 w-full mx-auto container lg:max-w-6xl md:max-w-4xl flex items-center mb-3 gap-x-3 text-white/80 dark:text-white"
 >

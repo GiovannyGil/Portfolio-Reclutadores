@@ -12,7 +12,8 @@ export const translations = {
         titulos: {
             projects: "Projects and Experiences",
             tools: "Languages and Tools",
-            contact: "Contact Me"
+            contact: "Contact Me",
+            contactMe: "Contact Me"
         },
         descripcionProyectos: {
             proyecto1: {
@@ -44,7 +45,8 @@ export const translations = {
         titulos: {
             projects: "Proyectos y experiencias",
             tools: "Lenguajes y Herramientas",
-            contact: "Sobre mí"
+            contact: "Sobre mí",
+            contactMe: "Contáctame"
         },
 
         descripcionProyectos: {
