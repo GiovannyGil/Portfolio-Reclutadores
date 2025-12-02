@@ -119,6 +119,8 @@
     display: flex;
     animation: scroll 40s linear infinite;
     -webkit-animation: scroll 40s linear infinite;
+    animation-direction: reverse;
+    -webkit-animation-direction: reverse;
     width: calc(200px * 14);
     margin: 0 0 50px 0px;
 
