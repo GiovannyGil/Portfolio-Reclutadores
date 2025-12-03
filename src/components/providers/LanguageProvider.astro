@@ -1,0 +1,9 @@
+<script is:inline>
+  (() => {
+    const raw = (navigator.languages && navigator.languages[0]) || navigator.language || "";
+    const lang = raw.toLowerCase().startsWith("es") ? "es" : "en";
+    window.LanguageContext = { language: lang, raw };
+    document.documentElement.setAttribute("lang", lang);
+    console.log("Idioma detectado:", lang, raw);
+  })();
+</script>

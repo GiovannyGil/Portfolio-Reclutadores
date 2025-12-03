@@ -8,6 +8,7 @@ const {title, description} = Astro.props;
 
 import Header  from '../components/Header.astro';
 import Footer  from '../components/Footer.astro';
+import LanguageProvider from '../components/providers/LanguageProvider.astro';
 ---
 
 <!doctype html>
@@ -21,8 +22,9 @@ import Footer  from '../components/Footer.astro';
 		<title>{title}</title>
 	</head>
 	<body class="">
+		<LanguageProvider />
 		<Header />
-		<slot />
+			<slot />
 		<Footer  id="Footer" /> 
 	</body>
 </html>
