@@ -3,6 +3,7 @@ const { class: id } = Astro.props;
 import SlideTools from "./SlideLenguages.astro";
 import SlideTech from "./SlideTech.astro";
 import SlideLenguahes from "./SlideTools.astro";
+import FormattedText from "./i18n/FormattedText.astro";
 
 import "/public/css/slide/carrusel.css";
 ---
@@ -10,7 +11,9 @@ import "/public/css/slide/carrusel.css";
 <div class="container" id="Tools">
   <h1
     class="text-4xl font-bold text-white-800 dark:text-gray-100 text-center mb-4 pt-5"
-  > Herramientas </h1>
+  >
+    <FormattedText text={{ es: "Herramientas", en: "Tools" }} />
+  </h1>
   <SlideTools />
   <SlideTech />
   <SlideLenguahes />

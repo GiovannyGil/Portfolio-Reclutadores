@@ -1,6 +1,7 @@
 ---
 const { class: id } = Astro.props;
 import "/public/css/home/style.css";
+import FormattedText from "./i18n/FormattedText.astro";
 ---
 
 <section class="container" id="Home">
@@ -30,17 +31,20 @@ import "/public/css/home/style.css";
       </div>
     </div>
     <div class="detail">
-      <h3 class="">¡Hola!, Yo soy</h3>
+      <h3 class="">
+        <FormattedText text={{ es: "¡Hola!, Yo soy", en: "Hello! I am" }} />
+      </h3>
       <section class="efecto">
         <h1 class="top" style="color:#f9532d;"><span>Giovanny</span> Chica</h1>
         <h1 class="bottom" aria-hidden="true"><span>Giovanny</span> Chica</h1>
       </section>
       <h3 class="">
-        Soy de Medellín, Colombia, tengo experiencia como desarrollador de
-        SOFTWARE. Soy una persona con muchas ganas de aprender y crecer en el
-        área de desarrollo de software, que le gusta trabajar en equipo y es muy
-        responsable con su trabajo, que le gusta aprender cosas nuevas cada día
-        y siempre está dispuesto a ayudar a sus compañeros.
+        <FormattedText
+          text={{
+            es: "Soy de Medellín, Colombia, tengo experiencia como desarrollador de SOFTWARE. Soy una persona con muchas ganas de aprender y crecer en el área de desarrollo de software, que le gusta trabajar en equipo y es muy responsable con su trabajo, que le gusta aprender cosas nuevas cada día y siempre está dispuesto a ayudar a sus compañeros.",
+            en: "I am from Medellín, Colombia, and I have experience as a SOFTWARE developer. I am a person eager to learn and grow in the software development field, who enjoys teamwork and is very responsible with their work, loves learning new things every day, and is always willing to help colleagues.",
+          }}
+        />
       </h3>
       <div class="box">
         <div class="red-social">

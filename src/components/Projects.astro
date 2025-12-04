@@ -1,27 +1,35 @@
 ---
 // list of projects
 
+import FormattedText from "./i18n/FormattedText.astro";
+
 const PROJECTS = [
   {
-    title: "Reconocimiento Facial",
-    description:
-      "Sistema de Reconocimiento Facial Biométrico para control de acceso a una empresa, mediante el reconocimiento de los rostros de los empleados, el sistema permite el acceso a las instalaciones de la empresa.",
+    title: { es: "Reconocimiento Facial", en: "Facial Recognition" },
+    description: {
+      es: "Sistema de Reconocimiento Facial Biométrico para control de acceso a una empresa, mediante el reconocimiento de los rostros de los empleados, el sistema permite el acceso a las instalaciones de la empresa.",
+      en: "Biometric Facial Recognition System for company access control. By recognizing employee faces, the system grants access to company facilities.",
+    },
     image: "/projects/FACE.webp",
     date: "17/07/2023 - 17/01/2024",
     tags: ["Python", "OpenCV", "MediaPipe", "Gpio", "SQLite3"],
   },
   {
-    title: "Clasificación de Imágenes",
-    description:
-      "Sistema de clasificación de imágenes utilizando técnicas de aprendizaje automático, con un modelo de clasificación de imágenes predictivo para aplicación móvil para clasificar tipos de madera, con una precisión de más del 90%.",
+    title: { es: "Clasificación de Imágenes", en: "Image Classification" },
+    description: {
+      es: "Sistema de clasificación de imágenes utilizando técnicas de aprendizaje automático, con un modelo de clasificación de imágenes predictivo para aplicación móvil para clasificar tipos de madera, con una precisión de más del 90%.",
+      en: "Image classification system using machine learning techniques, with a predictive image classification model for a mobile app to classify wood types, achieving over 90% accuracy.",
+    },
     image: "/projects/ClasificacionGal.webp",
     date: "17/07/2023 - 17/01/2024",
     tags: ["Python", "TensorFlow", "Keras", "Numpy", "Matplotlib"],
   },
   {
-    title: "SGNAN Control",
-    description:
-      "Sistema de control de stock para la empresa SGNAN, el sistema permite llevar el control de los stocks de los productos de la empresa, así como llevar el control de las ventas y compras de los productos.",
+    title: { es: "SGNAN Control", en: "SGNAN Control" },
+    description: {
+      es: "Sistema de control de stock para la empresa SGNAN, el sistema permite llevar el control de los stocks de los productos de la empresa, así como llevar el control de las ventas y compras de los productos.",
+      en: "Stock control system for SGNAN company. The system allows tracking company product stocks, as well as managing product sales and purchases.",
+    },
     image: "/projects/sgnan.webp",
     date: "01/02/2023 - 01/06/2023",
     tags: [
@@ -41,7 +49,11 @@ const PROJECTS = [
 
 <h2
   class="text-4xl font-bold text-white-800 dark:text-gray-100 text-center mb-4"
-> Proyectos y experiencias </h2>
+>
+  <FormattedText
+    text={{ es: "Proyectos y experiencias", en: "Projects and Experiences" }}
+  />
+</h2>
 <section
   class="scroll-m-20 w-full mx-auto container lg:max-w-6xl md:max-w-4xl flex items-center mb-3 gap-x-3 text-white/80 dark:text-white"
 >
@@ -62,7 +74,7 @@ const PROJECTS = [
 
           <div class="w-full md:w-1/2 lg:w-2/3 md:max-w-lg">
             <h3 class="text-2xl font-bold text-white-800 dark:text-gray-100">
-              {title}
+              <FormattedText text={title} />
             </h3>
             <div class="mt-2 text-white-700 dark:text-gray-400">{date}</div>
             <div class="flex flex-wrap mt-2">
@@ -77,7 +89,7 @@ const PROJECTS = [
               </ul>
 
               <div class="mt-2 text-white-700 dark:text-gray-400">
-                {description}
+                <FormattedText text={description} />
               </div>
             </div>
           </div>

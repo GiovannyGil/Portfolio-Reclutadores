@@ -2,13 +2,12 @@
 interface Props {
 	title: string;
 	description: string;
-
 }
-const {title, description} = Astro.props;
+const { title, description } = Astro.props;
 
-import Header  from '../components/Header.astro';
-import Footer  from '../components/Footer.astro';
-import LanguageProvider from '../components/providers/LanguageProvider.astro';
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import LanguageProvider from "../components/providers/LanguageProvider.astro";
 ---
 
 <!doctype html>
@@ -24,17 +23,17 @@ import LanguageProvider from '../components/providers/LanguageProvider.astro';
 	<body class="">
 		<LanguageProvider />
 		<Header />
-			<slot />
-		<Footer  id="Footer" /> 
+		<slot />
+		<Footer id="Footer" />
 	</body>
 </html>
 <style is:global>
-	@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
-	@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800&family=Roboto:wght@100;300;400&display=swap');
+	@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
+	@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800&family=Roboto:wght@100;300;400&display=swap");
 
 	:root {
-	--primary-color: #f9532d;
-	--primary-dark: #1F252E;
+		--primary-color: #f9532d;
+		--primary-dark: #1f252e;
 	}
 
 	* {
@@ -45,36 +44,44 @@ import LanguageProvider from '../components/providers/LanguageProvider.astro';
 	}
 
 	body {
-	font-family: 'Outfit', sans-serif;
-	background-color: #1b1d1f;
-	height: 100vh;
-	width: 100%;
-	color: #ffffff;
+		font-family: "Outfit", sans-serif;
+		background-color: #1b1d1f;
+		height: 100vh;
+		width: 100%;
+		color: #ffffff;
 	}
 
-		/* Estilo del scrollbar de la página en general */
+	/* Estilo del scrollbar de la página en general */
 	body::-webkit-scrollbar {
 		width: 12px; /* Ancho del scrollbar */
 	}
 
 	/* Estilo del track (fondo del scrollbar) */
 	body::-webkit-scrollbar-track {
-		background-color: #F5F5F5; /* Color del fondo del scrollbar */
+		background-color: #f5f5f5; /* Color del fondo del scrollbar */
 	}
 
 	/* Estilo del thumb (la parte móvil del scrollbar) */
 	body::-webkit-scrollbar-thumb {
-		background-color: #A9A9A9; /* Color del thumb del scrollbar */
+		background-color: #a9a9a9; /* Color del thumb del scrollbar */
 		border-radius: 5px; /* Bordes redondeados del thumb */
 	}
 
 	/* Cambiar el color del thumb cuando se está desplazando */
 	body::-webkit-scrollbar-thumb:hover {
-		background-color: #7A7A7A;
+		background-color: #7a7a7a;
 	}
 
 	/* Estilo del thumb cuando está activo (clicado) */
 	body::-webkit-scrollbar-thumb:active {
 		background-color: #555555;
+	}
+
+	/* Internationalization */
+	html[lang="es"] .lang-en {
+		display: none !important;
+	}
+	html[lang="en"] .lang-es {
+		display: none !important;
 	}
 </style>

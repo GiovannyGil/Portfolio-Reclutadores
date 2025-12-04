@@ -1,0 +1,21 @@
+---
+interface Props {
+    text?: {
+        es: string;
+        en: string;
+    };
+    class?: string;
+}
+
+const { text, class: className } = Astro.props;
+---
+
+{
+    text && (
+        <>
+            <span class:list={["lang-es", className]}>{text.es}</span>
+            <span class:list={["lang-en", className]}>{text.en}</span>
+        </>
+    )
+}
+<slot />
