@@ -1,102 +1,334 @@
 ---
-// list of projects
-
 import FormattedText from "./i18n/FormattedText.astro";
 
-const PROJECTS = [
+const EXPERIENCES = [
   {
-    title: { es: "Reconocimiento Facial", en: "Facial Recognition" },
-    description: {
-      es: "Sistema de Reconocimiento Facial Biométrico para control de acceso a una empresa, mediante el reconocimiento de los rostros de los empleados, el sistema permite el acceso a las instalaciones de la empresa.",
-      en: "Biometric Facial Recognition System for company access control. By recognizing employee faces, the system grants access to company facilities.",
-    },
-    image: "/projects/FACE.webp",
-    date: "17/07/2023 - 17/01/2024",
-    tags: ["Python", "OpenCV", "MediaPipe", "Gpio", "SQLite3"],
+    company: "Tecnoparque nodo medellin",
+    projects: [
+      {
+        title: { es: "Reconocimiento Facial", en: "Facial Recognition" },
+        description: {
+          es: "Sistema de Reconocimiento Facial Biométrico para control de acceso a una empresa, mediante el reconocimiento de los rostros de los empleados, el sistema permite el acceso a las instalaciones de la empresa.",
+          en: "Biometric Facial Recognition System for company access control. By recognizing employee faces, the system grants access to company facilities.",
+        },
+        media: [
+            { type: "image", src: "/projects/FACE.webp" },
+        ],
+        date: "17/07/2023 - 17/01/2024",
+        tags: ["Python", "OpenCV", "MediaPipe", "Gpio", "SQLite3"],
+      },
+      {
+        title: { es: "Clasificación de Imágenes", en: "Image Classification" },
+        description: {
+          es: "Sistema de clasificación de imágenes utilizando técnicas de aprendizaje automático, con un modelo de clasificación de imágenes predictivo para aplicación móvil para clasificar tipos de madera, con una precisión de más del 90%.",
+          en: "Image classification system using machine learning techniques, with a predictive image classification model for a mobile app to classify wood types, achieving over 90% accuracy.",
+        },
+        media: [
+             { type: "image", src: "/projects/ClasificacionGal.webp" }
+        ],
+        date: "17/07/2023 - 17/01/2024",
+        tags: ["Python", "TensorFlow", "Keras", "Numpy", "Matplotlib"],
+      },
+    ]
   },
   {
-    title: { es: "Clasificación de Imágenes", en: "Image Classification" },
-    description: {
-      es: "Sistema de clasificación de imágenes utilizando técnicas de aprendizaje automático, con un modelo de clasificación de imágenes predictivo para aplicación móvil para clasificar tipos de madera, con una precisión de más del 90%.",
-      en: "Image classification system using machine learning techniques, with a predictive image classification model for a mobile app to classify wood types, achieving over 90% accuracy.",
-    },
-    image: "/projects/ClasificacionGal.webp",
-    date: "17/07/2023 - 17/01/2024",
-    tags: ["Python", "TensorFlow", "Keras", "Numpy", "Matplotlib"],
-  },
-  {
-    title: { es: "SGNAN Control", en: "SGNAN Control" },
-    description: {
-      es: "Sistema de control de stock para la empresa SGNAN, el sistema permite llevar el control de los stocks de los productos de la empresa, así como llevar el control de las ventas y compras de los productos.",
-      en: "Stock control system for SGNAN company. The system allows tracking company product stocks, as well as managing product sales and purchases.",
-    },
-    image: "/projects/sgnan.webp",
-    date: "01/02/2023 - 01/06/2023",
-    tags: [
-      "PHP",
-      "Laravel",
-      "JavaScript",
-      "HTML",
-      "CSS",
-      "Bootstrap5",
-      "MySQL",
-    ],
-  },
+      company: "SGNAN",
+      projects: [
+        {
+            title: { es: "SGNAN Control", en: "SGNAN Control" },
+            description: {
+            es: "Sistema de control de stock para la empresa SGNAN, el sistema permite llevar el control de los stocks de los productos de la empresa, así como llevar el control de las ventas y compras de los productos.",
+            en: "Stock control system for SGNAN company. The system allows tracking company product stocks, as well as managing product sales and purchases.",
+            },
+            media: [
+                { type: "image", src: "/projects/sgnan.webp" }
+            ],
+            date: "01/02/2023 - 01/06/2023",
+            tags: [
+            "PHP",
+            "Laravel",
+            "JavaScript",
+            "HTML",
+            "CSS",
+            "Bootstrap5",
+            "MySQL",
+            ],
+        }
+      ]
+  }
 ];
-
-// const {class: className, id} = Astro.props
 ---
 
-<h2
-  class="text-4xl font-bold text-white-800 dark:text-gray-100 text-center mb-4"
->
-  <FormattedText
-    text={{ es: "Proyectos y experiencias", en: "Projects and Experiences" }}
-  />
-</h2>
-<section
-  class="scroll-m-20 w-full mx-auto container lg:max-w-6xl md:max-w-4xl flex items-center mb-3 gap-x-3 text-white/80 dark:text-white"
->
-  <div class="flex flex-col gap-y-16 w-full" id="Projects">
-    {
-      PROJECTS.map(({ title, description, image, date, tags }) => (
-        <article class="flex flex-col space-x-0 space-y-8 group md:flex-row md:space-x-8 md:space-y-0 w-full">
-          <div class="w-full md:w-1/2 lg:w-1/3">
-            <div class="relative flex flex-col items-center col-span-6 row-span-5 gap-8 transition duration-500 ease-in-out transform shadow-xl overflow-clip rounded-xl sm:rounded-xl md:group-hover:-translate-y-1 md:group-hover:shadow-2xl lg:border lg:border-gray-800 lg:hover:border-gray-700 lg:hover:bg-gray-800/50">
-              <img
-                alt="imagen"
-                class="object-cover object-top w-full h-56 transition duration-500 sm:h-full md:scale-110 md:group-hover:scale-105"
-                loading="lazy"
-                src={image}
-              />
-            </div>
-          </div>
+<section id="projects-section" class="w-full mx-auto container lg:max-w-7xl md:max-w-5xl mb-24 px-4 sm:px-6">
+  <h2 class="text-4xl font-bold text-white-800 dark:text-gray-100 text-center mb-16">
+    <FormattedText text={{ es: "Proyectos y experiencias", en: "Projects and Experiences" }} />
+  </h2>
 
-          <div class="w-full md:w-1/2 lg:w-2/3 md:max-w-lg">
-            <h3 class="text-2xl font-bold text-white-800 dark:text-gray-100">
-              <FormattedText text={title} />
-            </h3>
-            <div class="mt-2 text-white-700 dark:text-gray-400">{date}</div>
-            <div class="flex flex-wrap mt-2">
-              <ul class="flex gap-x-2 flex-row">
-                {tags.map((tag) => (
-                  <li>
-                    <span class="flex gap-x-2 rounded-full text-xs py-1 px-2 bg-blue-500 text-black font-semibold">
-                      {tag}
-                    </span>
-                  </li>
-                ))}
-              </ul>
+  <!-- Container Principal -->
+  <div class="relative w-full">
+    
+    <!-- Título de la Empresa (Arriba del Card para evitar conflictos) -->
+    <div class="text-center mb-8 px-12">
+        <h3 id="company-title" class="text-2xl md:text-3xl font-extrabold text-blue-500 uppercase tracking-widest transition-opacity duration-300">
+            <!-- JS updates this -->
+        </h3>
+    </div>
 
-              <div class="mt-2 text-white-700 dark:text-gray-400">
-                <FormattedText text={description} />
-              </div>
-            </div>
-          </div>
-        </article>
-      ))
-    }
+    <div class="flex items-center justify-center relative">
+        <!-- Botón Anterior Empresa -->
+        <button id="prev-company" class="absolute -left-2 md:-left-12 lg:-left-16 z-20 p-3 rounded-full bg-white/5 hover:bg-white/10 text-white backdrop-blur-sm transition-all border border-white/5 hover:border-blue-500/30 shadow-lg group">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 md:w-8 md:h-8 group-hover:-translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+        </button>
+
+        <!-- Card Container -->
+        <div id="company-container" class="relative w-full overflow-hidden bg-gray-900/40 backdrop-blur-md rounded-2xl border border-gray-700/50 shadow-2xl min-h-[550px]">
+            
+            <!-- Renderizado de Proyectos -->
+            {EXPERIENCES.map((exp, companyIdx) => (
+                <div data-company-index={companyIdx} class="company-slide absolute inset-0 w-full h-full flex flex-col p-6 md:p-10 transition-opacity duration-500" style={companyIdx === 0 ? "opacity: 1; pointer-events: auto; z-index: 10;" : "opacity: 0; pointer-events: none; z-index: 0;"}>
+                    
+                    <div class="relative flex-1">
+                        {exp.projects.map((project, projectIdx) => (
+                            <div data-project-index={projectIdx} class="project-slide w-full h-full flex flex-col transition-opacity duration-300 absolute inset-0" style={projectIdx === 0 ? "opacity: 1; pointer-events: auto; position: relative;" : "opacity: 0; pointer-events: none; position: absolute;"}>
+                                
+                                <!-- Header Proyecto: Título y Fecha -->
+                                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 border-b border-gray-700/30 pb-4">
+                                     <h4 class="text-3xl font-bold text-white tracking-tight">
+                                        <FormattedText text={project.title} />
+                                    </h4>
+                                    <div class="flex items-center gap-4">
+                                         <!-- Project Nav Controls (Top Right integration) -->
+                                         {exp.projects.length > 1 && (
+                                            <div class="flex items-center gap-2 bg-gray-800/50 rounded-full px-3 py-1 border border-gray-700">
+                                                <button class="prev-project p-1 hover:text-blue-400 transition" data-company-idx={companyIdx}>
+                                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+                                                </button>
+                                                <span class="text-xs text-gray-400 font-mono">{projectIdx + 1}/{exp.projects.length}</span>
+                                                <button class="next-project p-1 hover:text-blue-400 transition" data-company-idx={companyIdx}>
+                                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                                                </button>
+                                            </div>
+                                         )}
+                                         <span class="text-sm text-gray-400 font-mono px-3 py-1 rounded-full bg-gray-800/50 border border-gray-700 whitespace-nowrap">{project.date}</span>
+                                    </div>
+                                </div>
+                                
+                                <!-- Descripción -->
+                                <div class="text-gray-300 mb-8 text-lg leading-relaxed">
+                                    <FormattedText text={project.description} />
+                                </div>
+
+                                <!-- Tags -->
+                                <div class="flex flex-wrap gap-2 mb-auto">
+                                    {project.tags.map(tag => (
+                                        <span class="text-xs font-medium px-3 py-1.5 rounded-lg bg-blue-500/5 text-blue-200 border border-blue-500/10">
+                                            {tag}
+                                        </span>
+                                    ))}
+                                </div>
+
+                                <!-- Galería Centrada y Pequeña -->
+                                <div class="mt-8 pt-6 border-t border-gray-700/30">
+                                    <div class="flex justify-center flex-wrap gap-4">
+                                        {project.media.map((m, mIdx) => (
+                                            <button 
+                                                class="relative w-36 h-24 flex-shrink-0 rounded-lg overflow-hidden border border-gray-700 hover:border-blue-400/50 transition-all duration-300 transform hover:scale-105 bg-gray-800 shadow-sm group"
+                                                data-action="open-lightbox"
+                                                data-company-idx={companyIdx}
+                                                data-project-idx={projectIdx}
+                                                data-media-idx={mIdx}
+                                            >
+                                                <img src={m.src} class="w-full h-full object-cover transition-opacity opacity-70 group-hover:opacity-100" />
+                                                <div class="absolute inset-0 bg-blue-500/0 group-hover:bg-blue-500/10 transition-colors flex items-center justify-center">
+                                                     <svg class="w-6 h-6 text-white opacity-0 group-hover:opacity-100 transition-all transform scale-75 group-hover:scale-100 drop-shadow-md" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                                                </div>
+                                            </button>
+                                        ))}
+                                    </div>
+                                </div>
+
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            ))}
+        </div>
+
+        <!-- Botón Siguiente Empresa -->
+        <button id="next-company" class="absolute -right-2 md:-right-12 lg:-right-16 z-20 p-3 rounded-full bg-white/5 hover:bg-white/10 text-white backdrop-blur-sm transition-all border border-white/5 hover:border-blue-500/30 shadow-lg group">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 md:w-8 md:h-8 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </button>
+    </div>
+
   </div>
 
-  <slot />
+  <!-- Lightbox -->
+  <div id="lightbox" class="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+      <button id="close-lightbox" class="absolute top-6 right-6 text-white/50 hover:text-white transition z-50 p-2 hover:bg-white/10 rounded-full">
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+      </button>
+
+      <div class="relative w-full max-w-7xl h-full flex flex-col items-center justify-center p-4">
+          <div id="lightbox-content" class="relative w-full h-[85vh] flex items-center justify-center">
+              <img id="lightbox-img" src="" class="max-w-full max-h-full object-contain rounded-lg shadow-2xl" />
+          </div>
+          
+          <button id="lb-prev" class="absolute left-4 top-1/2 -translate-y-1/2 p-4 text-white/50 hover:text-white hover:bg-white/10 rounded-full transition outline-none">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+          </button>
+          <button id="lb-next" class="absolute right-4 top-1/2 -translate-y-1/2 p-4 text-white/50 hover:text-white hover:bg-white/10 rounded-full transition outline-none">
+            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+          </button>
+      </div>
+  </div>
 </section>
+
+<script define:vars={{ EXPERIENCES }}>
+  let currentCompanyIdx = 0;
+  let projectIndices = new Array(EXPERIENCES.length).fill(0);
+  
+  const companySlides = document.querySelectorAll('.company-slide');
+  const companyTitle = document.getElementById('company-title');
+  const nextCompanyBtn = document.getElementById('next-company');
+  const prevCompanyBtn = document.getElementById('prev-company');
+  
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lbNext = document.getElementById('lb-next');
+  const lbPrev = document.getElementById('lb-prev');
+  const lbClose = document.getElementById('close-lightbox');
+
+  let lbCompanyIdx = 0;
+  let lbProjectIdx = 0;
+  let lbMediaIdx = 0;
+
+  function updateCompany() {
+    companySlides.forEach((slide, idx) => {
+        if(idx === currentCompanyIdx) {
+            slide.style.visibility = 'visible';
+            slide.style.opacity = '1';
+            slide.style.zIndex = '10';
+            slide.style.pointerEvents = 'auto';
+        } else {
+            slide.style.opacity = '0';
+            slide.style.zIndex = '0';
+            slide.style.pointerEvents = 'none';
+            setTimeout(() => { if(idx !== currentCompanyIdx) slide.style.visibility = 'hidden'; }, 500);
+        }
+    });
+
+    if (EXPERIENCES[currentCompanyIdx]) {
+        companyTitle.textContent = EXPERIENCES[currentCompanyIdx].company;
+    }
+  }
+
+  updateCompany();
+
+  nextCompanyBtn.addEventListener('click', () => {
+    currentCompanyIdx = (currentCompanyIdx + 1) % EXPERIENCES.length;
+    updateCompany();
+  });
+
+  prevCompanyBtn.addEventListener('click', () => {
+    currentCompanyIdx = (currentCompanyIdx - 1 + EXPERIENCES.length) % EXPERIENCES.length;
+    updateCompany();
+  });
+
+  document.querySelectorAll('.next-project').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+          const cIdx = parseInt(e.currentTarget.getAttribute('data-company-idx'));
+          const max = EXPERIENCES[cIdx].projects.length;
+          projectIndices[cIdx] = (projectIndices[cIdx] + 1) % max;
+          updateProjectSlide(cIdx);
+      });
+  });
+
+  document.querySelectorAll('.prev-project').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+          const cIdx = parseInt(e.currentTarget.getAttribute('data-company-idx'));
+          const max = EXPERIENCES[cIdx].projects.length;
+          projectIndices[cIdx] = (projectIndices[cIdx] - 1 + max) % max;
+          updateProjectSlide(cIdx);
+      });
+  });
+
+  function updateProjectSlide(companyIdx) {
+      const companyContainer = document.querySelector(`.company-slide[data-company-index="${companyIdx}"]`);
+      const slides = companyContainer.querySelectorAll('.project-slide');
+      
+      const current = projectIndices[companyIdx];
+      // Update slide visibility
+      slides.forEach((slide, idx) => {
+          if (idx === current) {
+              slide.style.opacity = '1';
+              slide.style.pointerEvents = 'auto';
+              slide.style.position = 'relative';
+          } else {
+              slide.style.opacity = '0';
+              slide.style.pointerEvents = 'none';
+              slide.style.position = 'absolute';
+          }
+      });
+
+  }
+
+  // Lightbox
+  function openLightbox(cIdx, pIdx, mIdx) {
+      lbCompanyIdx = cIdx;
+      lbProjectIdx = pIdx;
+      lbMediaIdx = mIdx;
+      updateLightboxContent();
+      
+      lightbox.classList.remove('opacity-0', 'pointer-events-none');
+      document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+      lightbox.classList.add('opacity-0', 'pointer-events-none');
+      document.body.style.overflow = '';
+      setTimeout(() => { lightboxImg.src = ''; }, 300);
+  }
+
+  function updateLightboxContent() {
+      const media = EXPERIENCES[lbCompanyIdx].projects[lbProjectIdx].media[lbMediaIdx];
+      if (media.type === 'image') {
+          lightboxImg.src = media.src;
+      }
+  }
+
+  document.addEventListener('click', (e) => {
+    const trigger = e.target.closest('[data-action="open-lightbox"]');
+    if (trigger) {
+        const cIdx = parseInt(trigger.dataset.companyIdx);
+        const pIdx = parseInt(trigger.dataset.projectIdx);
+        const mIdx = parseInt(trigger.dataset.mediaIdx);
+        openLightbox(cIdx, pIdx, mIdx);
+    }
+  });
+
+  lbClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => {
+      if(e.target === lightbox || e.target.id === 'lightbox-content') closeLightbox();
+  });
+
+  lbNext.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const mediaParams = EXPERIENCES[lbCompanyIdx].projects[lbProjectIdx].media;
+      lbMediaIdx = (lbMediaIdx + 1) % mediaParams.length;
+      updateLightboxContent();
+  });
+
+  lbPrev.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const mediaParams = EXPERIENCES[lbCompanyIdx].projects[lbProjectIdx].media;
+      lbMediaIdx = (lbMediaIdx - 1 + mediaParams.length) % mediaParams.length;
+      updateLightboxContent();
+  });
+
+  document.addEventListener('keydown', (e) => {
+      if (lightbox.classList.contains('opacity-0')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') lbNext.click();
+      if (e.key === 'ArrowLeft') lbPrev.click();
+  });
+</script>
