@@ -2,6 +2,38 @@
 import FormattedText from "./i18n/FormattedText.astro";
 
 const EXPERIENCES = [
+    {
+        company: "OPA S.A.S",
+        projects: [
+            {
+                title: { es: "Desarrollo y mantenimiento de aplicaciones móviles", en: "Mobile Application Development and Maintenance" },
+                description: {
+                    es: "Mantenimiento de aplicaicones moviles derrolladas en Ionic, dando soporte, solucionando bugs y agregando nuevas funcionalidades. también desarrollando/migrando las mismas aplicaciones a entornos nativos en Android con Kotlin e integrando nuevas funcionalidades, entre las app para entidades, se encuentran: 'Fegreen', 'Fecom', 'Femfuturo', 'Forjar' ...",
+                    en: "Maintenance of mobile applications developed in Ionic, providing support, solving bugs and adding new features. Also developing/migrating the same applications to native Android environments with Kotlin and integrating new features, between the apps for entities, are: 'Fegreen', 'Fecom', 'Femfuturo', 'Forjar' ...",
+                },
+                media: [
+                    { type: "image", src: "/projects/fegreen1.webp" },
+                    { type: "image", src: "/projects/fegreen2.webp" },
+                    { type: "image", src: "/projects/fegreen3.webp" },
+                ],
+                date: "04/06/2024 - 26/08/2025",
+                tags: ["JavaScript", "HTML", "CSS", "Node.js", "Express", "Ionic", "Kotlin", "SQL Server"],
+            },
+            {
+                title: { es: "Desarrollo y soporte de app web", en: "Web Application Development and Support" },
+                description: {
+                    es: "Desarrollo, mantenimiento, soporte y optimización de plataforma web para el manejo de fondo de empleados internos de la empresa Fondo OPA, Femprestur, ...",
+                    en: "Web Platform Development for internal employee management of the Fondo OPA, Femprestur, ... companies",
+                },
+               media: [
+                    { type: "image", src: "/projects/FondoOpa1.webp" },
+                    { type: "image", src: "/projects/FondoOpa2.webp" },
+                ],
+                date: "04/06/2024 - 26/08/2025",
+                tags: ["JavaScript", "HTML", "CSS", "Node.js", "Express","React", "SQL Server"],
+            }
+        ]
+  },
   {
     company: "Tecnoparque nodo medellin",
     projects: [
@@ -59,7 +91,7 @@ const EXPERIENCES = [
 ];
 ---
 
-<section id="projects-section" class="w-full mx-auto container lg:max-w-7xl md:max-w-5xl mb-24 px-4 sm:px-6">
+<section id="Projects" class="w-full mx-auto container lg:max-w-7xl md:max-w-5xl mb-24 px-4 sm:px-6">
   <h2 class="text-4xl font-bold text-white-800 dark:text-gray-100 text-center mb-16">
     <FormattedText text={{ es: "Proyectos y experiencias", en: "Projects and Experiences" }} />
   </h2>
