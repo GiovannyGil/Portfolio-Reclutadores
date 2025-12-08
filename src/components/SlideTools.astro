@@ -1,20 +1,15 @@
 ---
-import { TOOLS } from './models/Tools.model.js'
+import { TOOLS } from "./models/Tools.model.js";
 
-import '/public/css/slide/style.css'
+import "/public/css/slide/style.css";
+
+const allTools = [...TOOLS, ...TOOLS];
 ---
 
 <div class="sliderTo">
   <div class="slide-trackTo">
     {
-      TOOLS.map(({ Icon }) => (
-        <div class="slideTo">
-          <Icon class="imagenesTo" />
-        </div>
-      ))
-    }
-    {
-      TOOLS.map(({ Icon }) => (
+      allTools.map(({ Icon }) => (
         <div class="slideTo">
           <Icon class="imagenesTo" />
         </div>

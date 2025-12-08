@@ -1,27 +1,17 @@
 ---
-import { TECHNOLOGIES } from "./models/Technologies.model"
+import { TECHNOLOGIES } from "./models/Technologies.model";
 
-import '/public/css/slide/style.css'
+import "/public/css/slide/style.css";
 
+const allTechnologies = [...TECHNOLOGIES, ...TECHNOLOGIES];
 ---
 
-<style>
-  
-</style>
-
-
+<style></style>
 
 <div class="sliderTe">
   <div class="slide-trackTe">
     {
-      TECHNOLOGIES.map(({ Icon }) => (
-        <div class="slideTe">
-          <Icon class="imagenesTe" />
-        </div>
-      ))
-    }
-    {
-      TECHNOLOGIES.map(({ Icon }) => (
+      allTechnologies.map(({ Icon }) => (
         <div class="slideTe">
           <Icon class="imagenesTe" />
         </div>

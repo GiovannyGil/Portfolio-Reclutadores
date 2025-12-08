@@ -12,9 +12,9 @@ const EXPERIENCES = [
                     en: "Maintenance of mobile applications developed in Ionic, providing support, solving bugs and adding new features. Also developing/migrating the same applications to native Android environments with Kotlin and integrating new features, between the apps for entities, are: 'Fegreen', 'Fecom', 'Femfuturo', 'Forjar' ...",
                 },
                 media: [
-                    { type: "image", src: "/projects/fegreen1.webp" },
-                    { type: "image", src: "/projects/fegreen2.webp" },
-                    { type: "image", src: "/projects/fegreen3.webp" },
+                    { type: "image", src: "/projects/fegreen1.webp", style: "mobile" },
+                    { type: "image", src: "/projects/fegreen2.webp", style: "mobile" },
+                    { type: "image", src: "/projects/fegreen3.webp", style: "mobile" },
                 ],
                 date: "04/06/2024 - 26/08/2025",
                 tags: ["JavaScript", "HTML", "CSS", "Node.js", "Express", "Ionic", "Kotlin", "SQL Server"],
@@ -26,8 +26,8 @@ const EXPERIENCES = [
                     en: "Web Platform Development for internal employee management of the Fondo OPA, Femprestur, ... companies",
                 },
                media: [
-                    { type: "image", src: "/projects/FondoOpa1.webp" },
-                    { type: "image", src: "/projects/FondoOpa2.webp" },
+                    { type: "image", src: "/projects/FondoOpa1.webp", style: "pc" },
+                    { type: "image", src: "/projects/FondoOpa2.webp", style: "pc" },
                 ],
                 date: "04/06/2024 - 26/08/2025",
                 tags: ["JavaScript", "HTML", "CSS", "Node.js", "Express","React", "SQL Server"],
@@ -44,7 +44,7 @@ const EXPERIENCES = [
           en: "Biometric Facial Recognition System for company access control. By recognizing employee faces, the system grants access to company facilities.",
         },
         media: [
-            { type: "image", src: "/projects/FACE.webp" },
+            { type: "image", src: "/projects/FACE.webp", style: "pc" },
         ],
         date: "17/07/2023 - 17/01/2024",
         tags: ["Python", "OpenCV", "MediaPipe", "Gpio", "SQLite3"],
@@ -56,7 +56,7 @@ const EXPERIENCES = [
           en: "Image classification system using machine learning techniques, with a predictive image classification model for a mobile app to classify wood types, achieving over 90% accuracy.",
         },
         media: [
-             { type: "image", src: "/projects/ClasificacionGal.webp" }
+             { type: "image", src: "/projects/ClasificacionGal.webp", style: "mobile" }
         ],
         date: "17/07/2023 - 17/01/2024",
         tags: ["Python", "TensorFlow", "Keras", "Numpy", "Matplotlib"],
@@ -73,7 +73,7 @@ const EXPERIENCES = [
             en: "Stock control system for SGNAN company. The system allows tracking company product stocks, as well as managing product sales and purchases.",
             },
             media: [
-                { type: "image", src: "/projects/sgnan.webp" }
+                { type: "image", src: "/projects/sgnan.webp", style: "pc"  }
             ],
             date: "01/02/2023 - 01/06/2023",
             tags: [
@@ -161,10 +161,10 @@ const EXPERIENCES = [
 
                                 <!-- Galería Centrada y Pequeña -->
                                 <div class="mt-8 pt-6 border-t border-gray-700/30">
-                                    <div class="flex justify-center flex-wrap gap-4">
+                                    <div class="flex justify-center flex-wrap gap-4 items-center">
                                         {project.media.map((m, mIdx) => (
                                             <button 
-                                                class="relative w-36 h-24 flex-shrink-0 rounded-lg overflow-hidden border border-gray-700 hover:border-blue-400/50 transition-all duration-300 transform hover:scale-105 bg-gray-800 shadow-sm group"
+                                                class={`relative flex-shrink-0 rounded-lg overflow-hidden border border-gray-700 hover:border-blue-400/50 transition-all duration-300 transform hover:scale-105 bg-gray-800 shadow-sm group ${m.style === 'mobile' ? 'w-18 h-32' : 'w-48 h-32'}`}
                                                 data-action="open-lightbox"
                                                 data-company-idx={companyIdx}
                                                 data-project-idx={projectIdx}

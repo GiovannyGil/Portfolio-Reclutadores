@@ -2,26 +2,14 @@
 import { LENGUAGES } from "./models/Lenguages.model.js";
 
 import "/public/css/slide/style.css";
+
+const allLanguages = [...LENGUAGES, ...LENGUAGES, ...LENGUAGES];
 ---
 
 <div class="slider">
   <div class="slide-track">
     {
-      LENGUAGES.map(({ Icon }) => (
-        <div class="slide">
-          <Icon class="imagenes" />
-        </div>
-      ))
-    }
-    {
-      LENGUAGES.map(({ Icon }) => (
-        <div class="slide">
-          <Icon class="imagenes" />
-        </div>
-      ))
-    }
-    {
-      LENGUAGES.map(({ Icon }) => (
+      allLanguages.map(({ Icon }) => (
         <div class="slide">
           <Icon class="imagenes" />
         </div>
