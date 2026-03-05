@@ -151,10 +151,13 @@ const EXPERIENCES = [
   <div class="relative w-full">
     
     <!-- Título de la Empresa (Arriba del Card para evitar conflictos) -->
-    <div class="text-center mb-8 px-12">
+    <div class="text-center mb-8 px-12 flex flex-col items-center">
         <h3 id="company-title" class="text-2xl md:text-3xl font-extrabold text-blue-500 uppercase tracking-widest transition-opacity duration-300">
             <!-- JS updates this -->
         </h3>
+        <span id="company-date" class="mt-2 px-4 py-1 tracking-wider rounded-full bg-blue-500/10 text-blue-300 text-sm font-mono border border-blue-500/20 shadow-[0_0_10px_rgba(59,130,246,0.1)] transition-opacity duration-300">
+            <!-- JS updates this -->
+        </span>
     </div>
 
     <div class="flex items-center justify-center relative">
@@ -272,6 +275,7 @@ const EXPERIENCES = [
   
   const companySlides = document.querySelectorAll('.company-slide');
   const companyTitle = document.getElementById('company-title');
+  const companyDate = document.getElementById('company-date');
   const nextCompanyBtn = document.getElementById('next-company');
   const prevCompanyBtn = document.getElementById('prev-company');
   
@@ -302,6 +306,9 @@ const EXPERIENCES = [
 
     if (EXPERIENCES[currentCompanyIdx]) {
         companyTitle.textContent = EXPERIENCES[currentCompanyIdx].company;
+        if (companyDate) {
+            companyDate.textContent = EXPERIENCES[currentCompanyIdx].date;
+        }
     }
   }
 
