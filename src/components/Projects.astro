@@ -1,19 +1,16 @@
 ---
 import FormattedText from "./i18n/FormattedText.astro";
 
-// freelance
-
-
-// empleo
-const EXPERIENCES = [
-    {
-        company: "ABI DATA S.A.S",
-        date: "01/09/2025 - presente",
-        projects: [
-            {
-                title: {es: "Desarrollo de APP SUNNEL", en: "SUNNEL App Development"},
-                description: {es: "Desarrollo de App multitenant para empresa Bechange/Sunnel/GREENTECH en la que se puede acceder a datos bancarios de diferentes entidades, y tarjetas (Debito, Crédito, MultiCuenta) y módulos de gestión financiera.", en: "Multitenant App development for Bechange/Sunnel/GREENTECH company, where you can access banking data from different entities, and cards (Debit, Credit, MultiAccount) and financial management modules."},
-                media: [
+const EXPERIENCES = {
+    empleo: [
+        {
+            company: "ABI DATA S.A.S",
+            date: "01/09/2025 - presente",
+            projects: [
+                {
+                    title: {es: "Desarrollo de APP SUNNEL", en: "SUNNEL App Development"},
+                    description: {es: "Desarrollo de App multitenant para empresa Bechange/Sunnel/GREENTECH en la que se puede acceder a datos bancarios de diferentes entidades, y tarjetas (Debito, Crédito, MultiCuenta) y módulos de gestión financiera.", en: "Multitenant App development for Bechange/Sunnel/GREENTECH company, where you can access banking data from different entities, and cards (Debit, Credit, MultiAccount) and financial management modules."},
+                    media: [
                         { type: "image", src: "/projects/Sunnel1.webp", style: "mobile" },
                         { type: "image", src: "/projects/Sunnel2.webp", style: "mobile" },
                         { type: "image", src: "/projects/Sunnel3.webp", style: "mobile" },
@@ -24,13 +21,13 @@ const EXPERIENCES = [
                         { type: "image", src: "/projects/Sunnel8.webp", style: "mobile" },
                         { type: "image", src: "/projects/Sunnel9.webp", style: "mobile" }
                     ],
-                date: "01/09/2025 - 31/12/2025",
-                tags: ["JavaScript", "HTML", "CSS", "SQL", "PHP"],
-            },
-            {
-                title: {es: "Campaña 'Para el colegio estamos listos con Chocolisto' ", en: "'For school we are ready with Chocolisto' Campaign"},
-                description: {es: "Desarrollo de campaña de la marca 'Chocolisto' con el lema ´Para el colegio estamos listos con Chocolisto´ para el regreso a clases con premios por participación.", en: "Development of a campaign for the 'Chocolisto' brand with the slogan 'For school we are ready with Chocolisto' for the return to classes with prizes for participation."},
-                media: [
+                    date: "01/09/2025 - 31/12/2025",
+                    tags: ["JavaScript", "HTML", "CSS", "SQL", "PHP"],
+                },
+                {
+                    title: {es: "Campaña 'Para el colegio estamos listos con Chocolisto' ", en: "'For school we are ready with Chocolisto' Campaign"},
+                    description: {es: "Desarrollo de campaña de la marca 'Chocolisto' con el lema ´Para el colegio estamos listos con Chocolisto´ para el regreso a clases con premios por participación.", en: "Development of a campaign for the 'Chocolisto' brand with the slogan 'For school we are ready with Chocolisto' for the return to classes with prizes for participation."},
+                    media: [
                         { type: "image", src: "/projects/welcome.webp", style: "pc" },
                         { type: "image", src: "/projects/home.webp", style: "pc" },
                         { type: "image", src: "/projects/mecanica.webp", style: "pc" },
@@ -48,258 +45,313 @@ const EXPERIENCES = [
                         { type: "image", src: "/projects/PrincipalAlertEmpaque.webp", style: "pc" },
                         { type: "image", src: "/projects/PrincipalAlertValidate.webp", style: "pc" },
                         { type: "image", src: "/projects/AlertGramos.webp", style: "pc" },
-                        { type: "image", src: "/projects/juego.webp", style: "pc" },
-
-                ],
-                date: "01/09/2025 - presente",
-                tags: ["JavaScript", "HTML", "CSS", "SQL", "PHP"],
-            },
-        ]
-    },
-    {
-        company: "OPA S.A.S",
-        date: "04/06/2024 - 27/08/2025",
-        projects: [
-            {
-                title: { es: "Desarrollo y mantenimiento de aplicaciones móviles", en: "Mobile Application Development and Maintenance" },
-                description: {
-                    es: "Mantenimiento de aplicaciones móviles desarrolladas en Ionic: soporte diario, corrección de bugs, optimización y nuevas funcionalidades. Además, migración progresiva a Android nativo con Kotlin e integración de módulos específicos para cada entidad (Fegreen, Fecom, Femfuturo, Forjar, entre otras).",
-                    en: "Maintenance of Ionic mobile apps: daily support, bug fixes, performance improvements, and new features. Also led the progressive migration to native Android with Kotlin and integrated entity-specific modules (Fegreen, Fecom, Femfuturo, Forjar, and others).",
+                        { type: "image", src: "/projects/juego.webp", style: "pc" }
+                    ],
+                    date: "01/09/2025 - presente",
+                    tags: ["JavaScript", "HTML", "CSS", "SQL", "PHP"],
                 },
-                media: [
-                    { type: "image", src: "/projects/fegreen1.webp", style: "mobile" },
-                    { type: "image", src: "/projects/fegreen2.webp", style: "mobile" },
-                    { type: "image", src: "/projects/fegreen3.webp", style: "mobile" },
-                ],
-                date: "04/06/2024 - 26/08/2025",
-                tags: ["JavaScript", "HTML", "CSS", "Node.js", "Express", "Ionic", "Kotlin", "SQL", "SQL Server"],
-            },
-            {
-                title: { es: "Desarrollo y soporte de app web", en: "Web Application Development and Support" },
-                description: {
-                    es: "Desarrollo y soporte de una plataforma web para la gestión del fondo de empleados (Fondo OPA, Femprestur, etc.). Incluye mejoras de rendimiento, mantenimiento evolutivo, soporte a usuarios y ajustes en módulos de operaciones y reportes.",
-                    en: "Development and support of a web platform for employee fund management (Fondo OPA, Femprestur, etc.), including performance improvements, ongoing maintenance, user support, and updates to operations and reporting modules.",
-                },
-               media: [
-                    { type: "image", src: "/projects/FondoOpa1.webp", style: "pc" },
-                    { type: "image", src: "/projects/FondoOpa2.webp", style: "pc" },
-                ],
-                date: "04/06/2024 - 26/08/2025",
-                tags: ["JavaScript", "HTML", "CSS", "Node.js", "Express","React", "SQL", "SQL Server"],
-            }
-        ]
-  },
-  {
-    company: "Tecnoparque nodo medellin",
-    date: "01/07/2023 - 27/01/2024",
-    projects: [
-      {
-        title: { es: "Reconocimiento Facial", en: "Facial Recognition" },
-        description: {
-          es: "Sistema biométrico de reconocimiento facial para control de acceso: registro de empleados, validación en tiempo real y bitácora de entradas y salidas. Integración con hardware y cámaras para operar en entornos empresariales.",
-          en: "Biometric facial recognition system for access control: employee enrollment, real-time validation, and entry/exit logs. Integrated with cameras and hardware for enterprise environments.",
+                {
+                    title: { es: "Desarrollo y soporte de aplicativo web", en: "Web Application Development and Support" },
+                    description: {
+                        es: "Se hacen ajustes, soporte y soluciones de bug en el aplicativo web 'Punto Cardina (PPC)' durante un periodo de reestructuracion, migración y soluciones de errores.",
+                        en: "Adjustments, support, and bug fixes are made to the web application 'Punto Cardina (PPC)' during a period of restructuring, migration, and error resolution.",
+                    },
+                    media: [
+                        { type: "image", src: "/projects/PuntoCardinalUno.webp", style: "pc" },
+                        { type: "image", src: "/projects/PuntoCardinalDos.webp", style: "pc" },
+                        { type: "image", src: "/projects/PuntoCardinalTres.webp", style: "pc" },
+                        { type: "image", src: "/projects/PuntoCardinalCuatro.webp", style: "pc" },
+                    ],
+                    date: "15/02/2026 - 01/03/2026",
+                    tags: ["JavaScript", "HTML", "CSS", "React"]
+                }
+            ]
         },
-        media: [
-            { type: "image", src: "/projects/FACE.webp", style: "pc" },
-        ],
-        date: "17/07/2023 - 17/01/2024",
-        tags: ["Python", "OpenCV", "MediaPipe", "Gpio", "SQLite3", "SQL"],
-      },
-      {
-        title: { es: "Clasificación de Imágenes", en: "Image Classification" },
-        description: {
-          es: "Sistema de clasificación de imágenes con aprendizaje automático: preparación de dataset, entrenamiento y evaluación de modelo para una app móvil que identifica tipos de madera, logrando más del 90% de precisión.",
-          en: "Image classification system using machine learning: dataset preparation, model training, and evaluation for a mobile app that identifies wood types, achieving over 90% accuracy.",
-        },
-        media: [
-             { type: "image", src: "/projects/ClasificacionGal.webp", style: "mobile" }
-        ],
-        date: "17/07/2023 - 17/01/2024",
-        tags: ["Python", "TensorFlow", "Keras", "Numpy", "Matplotlib", "SQL"],
-      },
-    ]
-  },
-  {
-      company: "SGNAN",
-      date: "01/02/2023 - 01/06/2023",
-      projects: [
         {
-            title: { es: "SGNAN Control", en: "SGNAN Control" },
-            description: {
-            es: "Sistema de inventario y ventas para SGNAN: control de stock, registro de compras y ventas, reportes y administración básica de usuarios.",
-            en: "Inventory and sales system for SGNAN: stock tracking, purchase and sales records, reporting, and basic user management.",
-            },
-            media: [
-                { type: "image", src: "/projects/sgnan.webp", style: "pc" }
-            ],
+            company: "OPA S.A.S",
+            date: "04/06/2024 - 27/08/2025",
+            projects: [
+                {
+                    title: { es: "Desarrollo y mantenimiento de aplicaciones móviles", en: "Mobile Application Development and Maintenance" },
+                    description: {
+                        es: "Mantenimiento de aplicaciones móviles desarrolladas en Ionic: soporte diario, corrección de bugs, optimización y nuevas funcionalidades. Además, migración progresiva a Android nativo con Kotlin e integración de módulos específicos para cada entidad (Fegreen, Fecom, Femfuturo, Forjar, entre otras).",
+                        en: "Maintenance of Ionic mobile apps: daily support, bug fixes, performance improvements, and new features. Also led the progressive migration to native Android with Kotlin and integrated entity-specific modules (Fegreen, Fecom, Femfuturo, Forjar, and others)."
+                    },
+                    media: [
+                        { type: "image", src: "/projects/fegreen1.webp", style: "mobile" },
+                        { type: "image", src: "/projects/fegreen2.webp", style: "mobile" },
+                        { type: "image", src: "/projects/fegreen3.webp", style: "mobile" }
+                    ],
+                    date: "04/06/2024 - 26/08/2025",
+                    tags: ["JavaScript", "HTML", "CSS", "Node.js", "Express", "Ionic", "Kotlin", "SQL", "SQL Server"]
+                },
+                {
+                    title: { es: "Desarrollo y soporte de app web", en: "Web Application Development and Support" },
+                    description: {
+                        es: "Desarrollo y soporte de una plataforma web para la gestión del fondo de empleados (Fondo OPA, Femprestur, etc.). Incluye mejoras de rendimiento, mantenimiento evolutivo, soporte a usuarios y ajustes en módulos de operaciones y reportes.",
+                        en: "Development and support of a web platform for employee fund management (Fondo OPA, Femprestur, etc.), including performance improvements, ongoing maintenance, user support, and updates to operations and reporting modules."
+                    },
+                   media: [
+                        { type: "image", src: "/projects/FondoOpa1.webp", style: "pc" },
+                        { type: "image", src: "/projects/FondoOpa2.webp", style: "pc" }
+                    ],
+                    date: "04/06/2024 - 26/08/2025",
+                    tags: ["JavaScript", "HTML", "CSS", "Node.js", "Express","React", "SQL", "SQL Server"]
+                }
+            ]
+        },
+        {
+            company: "Tecnoparque nodo medellin",
+            date: "01/07/2023 - 27/01/2024",
+            projects: [
+                {
+                    title: { es: "Reconocimiento Facial", en: "Facial Recognition" },
+                    description: {
+                        es: "Sistema biométrico de reconocimiento facial para control de acceso: registro de empleados, validación en tiempo real y bitácora de entradas y salidas. Integración con hardware y cámaras para operar en entornos empresariales.",
+                        en: "Biometric facial recognition system for access control: employee enrollment, real-time validation, and entry/exit logs. Integrated with cameras and hardware for enterprise environments."
+                    },
+                    media: [
+                        { type: "image", src: "/projects/FACE.webp", style: "pc" }
+                    ],
+                    date: "17/07/2023 - 17/01/2024",
+                    tags: ["Python", "OpenCV", "MediaPipe", "Gpio", "SQLite3", "SQL"]
+                },
+                {
+                    title: { es: "Clasificación de Imágenes", en: "Image Classification" },
+                    description: {
+                        es: "Sistema de clasificación de imágenes con aprendizaje automático: preparación de dataset, entrenamiento y evaluación de modelo para una app móvil que identifica tipos de madera, logrando más del 90% de precisión.",
+                        en: "Image classification system using machine learning: dataset preparation, model training, and evaluation for a mobile app that identifies wood types, achieving over 90% accuracy."
+                    },
+                    media: [
+                         { type: "image", src: "/projects/ClasificacionGal.webp", style: "mobile" }
+                    ],
+                    date: "17/07/2023 - 17/01/2024",
+                    tags: ["Python", "TensorFlow", "Keras", "Numpy", "Matplotlib", "SQL"]
+                }
+            ]
+        },
+        {
+            company: "SGNAN",
             date: "01/02/2023 - 01/06/2023",
-            tags: [
-            "PHP",
-            "Laravel",
-            "JavaScript",
-            "HTML",
-            "CSS",
-            "Bootstrap5",
-            "SQL",
-            "MySQL",
-            ],
+            projects: [
+                {
+                    title: { es: "SGNAN Control", en: "SGNAN Control" },
+                    description: {
+                        es: "Sistema de inventario y ventas para SGNAN: control de stock, registro de compras y ventas, reportes y administración básica de usuarios.",
+                        en: "Inventory and sales system for SGNAN: stock tracking, purchase and sales records, reporting, and basic user management."
+                    },
+                    media: [
+                        { type: "image", src: "/projects/sgnan.webp", style: "pc" }
+                    ],
+                    date: "01/02/2023 - 01/06/2023",
+                    tags: ["PHP", "Laravel", "JavaScript", "HTML", "CSS", "Bootstrap5", "SQL", "MySQL"]
+                }
+            ]
         }
-      ]
-  }
-];
+    ],
+    freelance: []
+};
 ---
-
 
 <section id="Projects" class="w-full mx-auto container lg:max-w-7xl md:max-w-5xl mb-24 px-4 sm:px-6">
   <h2 class="text-4xl font-bold text-white-800 dark:text-gray-100 text-center mb-16">
     <FormattedText text={{ es: "Proyectos y experiencias", en: "Projects and Experiences" }} />
   </h2>
 
+  <!-- Tabs Categoria -->
+  <div class="flex justify-center flex-wrap gap-4 mb-10 w-full" id="experience-tabs">
+      <button data-category="empleo" class="category-tab px-6 py-2 rounded-full font-semibold transition-all bg-blue-600 text-white shadow-lg shadow-blue-500/30 border-transparent">
+        <FormattedText text={{ es: "Empleo", en: "Employment" }} />
+      </button>
+      <button data-category="freelance" class="category-tab px-6 py-2 rounded-full font-semibold transition-all bg-gray-800 text-gray-400 hover:text-white border border-gray-700 hover:border-gray-500">
+        <FormattedText text={{ es: "Freelance", en: "Freelance" }} />
+      </button>
+  </div>
+
   <!-- Container Principal  -->
-  <div class="relative w-full">
-    
-    <!-- Título de la Empresa (Arriba del Card para evitar conflictos) -->
-    <div class="text-center mb-8 px-12 flex flex-col items-center">
-        <h3 id="company-title" class="text-2xl md:text-3xl font-extrabold text-blue-500 uppercase tracking-widest transition-opacity duration-300">
-            <!-- JS updates this --> 
-        </h3>
-        <span id="company-date" class="mt-2 px-4 py-1 tracking-wider rounded-full bg-blue-500/10 text-blue-300 text-sm font-mono border border-blue-500/20 shadow-[0_0_10px_rgba(59,130,246,0.1)] transition-opacity duration-300">
-            <!-- JS updates this --> 
-        </span>
-    </div>
+  <div class="relative w-full" id="principal-wrapper">
+    {Object.entries(EXPERIENCES).map(([category, exps]) => (
+      <div class={`category-section w-full transition-opacity duration-300 ${category}`} data-category={category} style={category === 'empleo' ? "display: block;" : "display: none;"}>
+        
+        {exps.length === 0 ? (
+            <div class="text-center py-20 bg-gray-900/40 backdrop-blur-md rounded-2xl border border-gray-700/50 shadow-2xl min-h-[300px] flex items-center justify-center">
+                <p class="text-gray-400 text-xl font-medium tracking-wide"><FormattedText text={{es: "Próximamente más proyectos", en: "More projects coming soon"}} /></p>
+            </div>
+        ) : (
+            <div class="relative w-full">
+                <!-- Título de la Empresa -->
+                <div class="text-center mb-8 px-12 flex flex-col items-center">
+                    <h3 class="company-title text-2xl md:text-3xl font-extrabold text-blue-500 uppercase tracking-widest transition-opacity duration-300">
+                        {exps[0].company}
+                    </h3>
+                    <span class="company-date mt-2 px-4 py-1 tracking-wider rounded-full bg-blue-500/10 text-blue-300 text-sm font-mono border border-blue-500/20 shadow-[0_0_10px_rgba(59,130,246,0.1)] transition-opacity duration-300">
+                        {exps[0].date}
+                    </span>
+                </div>
 
-    <div class="flex items-center justify-center relative">
-        <!-- Botón Anterior Empresa -->
-        <button id="prev-company" class="absolute -left-2 md:-left-12 lg:-left-16 z-20 p-3 rounded-full bg-white/5 hover:bg-white/10 text-white backdrop-blur-sm transition-all border border-white/5 hover:border-blue-500/30 shadow-lg group">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 md:w-8 md:h-8 group-hover:-translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
-        </button>
+                <div class="flex items-center justify-center relative">
+                    <!-- Botón Anterior Empresa -->
+                    <button class="prev-company absolute -left-2 md:-left-12 lg:-left-16 z-20 p-3 rounded-full bg-white/5 hover:bg-white/10 text-white backdrop-blur-sm transition-all border border-white/5 hover:border-blue-500/30 shadow-lg group">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 md:w-8 md:h-8 group-hover:-translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+                    </button>
 
-        <!-- Card Container -->
-        <div id="company-container" class="relative w-full overflow-hidden bg-gray-900/40 backdrop-blur-md rounded-2xl border border-gray-700/50 shadow-2xl min-h-[550px]">
-            
-            <!-- Renderizado de Proyectos en los que he trabajado -->
-            {EXPERIENCES.map((exp, companyIdx) => (
-                <div data-company-index={companyIdx} class="company-slide absolute inset-0 w-full h-full flex flex-col p-6 md:p-10 transition-opacity duration-500" style={companyIdx === 0 ? "opacity: 1; pointer-events: auto; z-index: 10;" : "opacity: 0; pointer-events: none; z-index: 0;"}>
-                    
-                    <div class="relative flex-1">
-                        {exp.projects.map((project, projectIdx) => (
-                            <div data-project-index={projectIdx} class="project-slide w-full h-full flex flex-col transition-opacity duration-300 absolute inset-0" style={projectIdx === 0 ? "opacity: 1; pointer-events: auto; position: relative;" : "opacity: 0; pointer-events: none; position: absolute;"}>
-                                
-                                <!-- Header Proyecto: Título y Fecha -->
-                                <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 border-b border-gray-700/30 pb-4">
-                                     <h4 class="text-3xl font-bold text-white tracking-tight">
-                                        <FormattedText text={project.title} />
-                                    </h4>
-                                    <div class="flex items-center gap-4">
-                                         <!-- Project Nav Controls (Top Right integration) -->
-                                         {exp.projects.length > 1 && (
-                                            <div class="flex items-center gap-2 bg-gray-800/50 rounded-full px-3 py-1 border border-gray-700">
-                                                <button class="prev-project p-1 hover:text-blue-400 transition" data-company-idx={companyIdx}>
-                                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
-                                                </button>
-                                                <span class="text-xs text-gray-400 font-mono">{projectIdx + 1}/{exp.projects.length}</span>
-                                                <button class="next-project p-1 hover:text-blue-400 transition" data-company-idx={companyIdx}>
-                                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-                                                </button>
+                    <!-- Card Container -->
+                    <div class="company-container relative w-full overflow-hidden bg-gray-900/40 backdrop-blur-md rounded-2xl border border-gray-700/50 shadow-2xl min-h-[550px]">
+                        {exps.map((exp, companyIdx) => (
+                            <div data-company-index={companyIdx} class="company-slide absolute inset-0 w-full h-full flex flex-col p-6 md:p-10 transition-opacity duration-500" style={companyIdx === 0 ? "opacity: 1; pointer-events: auto; z-index: 10;" : "opacity: 0; pointer-events: none; z-index: 0;"}>
+                                <div class="relative flex-1">
+                                    {exp.projects.map((project, projectIdx) => (
+                                        <div data-project-index={projectIdx} class="project-slide w-full h-full flex flex-col transition-opacity duration-300 absolute inset-0" style={projectIdx === 0 ? "opacity: 1; pointer-events: auto; position: relative;" : "opacity: 0; pointer-events: none; position: absolute;"}>
+                                            
+                                            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 border-b border-gray-700/30 pb-4">
+                                                <h4 class="text-3xl font-bold text-white tracking-tight">
+                                                    <FormattedText text={project.title} />
+                                                </h4>
+                                                <div class="flex items-center gap-4">
+                                                    {exp.projects.length > 1 && (
+                                                        <div class="flex items-center gap-2 bg-gray-800/50 rounded-full px-3 py-1 border border-gray-700">
+                                                            <button class="prev-project p-1 hover:text-blue-400 transition" data-category={category} data-company-idx={companyIdx}>
+                                                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+                                                            </button>
+                                                            <span class="project-counter text-xs text-gray-400 font-mono">{projectIdx + 1}/{exp.projects.length}</span>
+                                                            <button class="next-project p-1 hover:text-blue-400 transition" data-category={category} data-company-idx={companyIdx}>
+                                                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                                                            </button>
+                                                        </div>
+                                                    )}
+                                                    <span class="text-sm text-gray-400 font-mono px-3 py-1 rounded-full bg-gray-800/50 border border-gray-700 whitespace-nowrap">{project.date}</span>
+                                                </div>
                                             </div>
-                                         )}
-                                         <span class="text-sm text-gray-400 font-mono px-3 py-1 rounded-full bg-gray-800/50 border border-gray-700 whitespace-nowrap">{project.date}</span>
-                                    </div>
-                                </div>
-                                
-                                <!-- Descripción -->
-                                <div class="text-gray-300 mb-8 text-lg leading-relaxed">
-                                    <FormattedText text={project.description} />
-                                </div>
+                                            
+                                            <div class="text-gray-300 mb-8 text-lg leading-relaxed">
+                                                <FormattedText text={project.description} />
+                                            </div>
 
-                                <!-- Tags -->
-                                <div class="flex flex-wrap gap-2 mb-auto">
-                                    {(project.tags ?? []).map(tag => (
-                                        <span class="text-xs font-medium px-3 py-1.5 rounded-lg bg-blue-500/5 text-blue-200 border border-blue-500/10">
-                                            {tag}
-                                        </span>
+                                            <div class="flex flex-wrap gap-2 mb-auto">
+                                                {(project.tags ?? []).map(tag => (
+                                                    <span class="text-xs font-medium px-3 py-1.5 rounded-lg bg-blue-500/5 text-blue-200 border border-blue-500/10">
+                                                        {tag}
+                                                    </span>
+                                                ))}
+                                            </div>
+
+                                            <div class="mt-8 pt-6 border-t border-gray-700/30">
+                                                <div class="flex justify-center flex-wrap gap-4 items-center">
+                                                    {project.media.map((m, mIdx) => (
+                                                        <button 
+                                                            class={`relative flex-shrink-0 rounded-lg overflow-hidden border border-gray-700 hover:border-blue-400/50 transition-all duration-300 transform hover:scale-105 bg-gray-800 shadow-sm group ${m.style === 'mobile' ? 'w-18 h-32' : 'w-48 h-32'}`}
+                                                            data-action="open-lightbox"
+                                                            data-category={category}
+                                                            data-company-idx={companyIdx}
+                                                            data-project-idx={projectIdx}
+                                                            data-media-idx={mIdx}
+                                                        >
+                                                            <img src={m.src} class="w-full h-full object-cover transition-opacity opacity-70 group-hover:opacity-100" />
+                                                            <div class="absolute inset-0 bg-blue-500/0 group-hover:bg-blue-500/10 transition-colors flex items-center justify-center">
+                                                                <svg class="w-6 h-6 text-white opacity-0 group-hover:opacity-100 transition-all transform scale-75 group-hover:scale-100 drop-shadow-md" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                                                            </div>
+                                                        </button>
+                                                    ))}
+                                                </div>
+                                            </div>
+
+                                        </div>
                                     ))}
                                 </div>
-
-                                <!-- Galería Centrada y Pequeña -->
-                                <div class="mt-8 pt-6 border-t border-gray-700/30">
-                                    <div class="flex justify-center flex-wrap gap-4 items-center">
-                                        {project.media.map((m, mIdx) => (
-                                            <button 
-                                                class={`relative flex-shrink-0 rounded-lg overflow-hidden border border-gray-700 hover:border-blue-400/50 transition-all duration-300 transform hover:scale-105 bg-gray-800 shadow-sm group ${m.style === 'mobile' ? 'w-18 h-32' : 'w-48 h-32'}`}
-                                                data-action="open-lightbox"
-                                                data-company-idx={companyIdx}
-                                                data-project-idx={projectIdx}
-                                                data-media-idx={mIdx}
-                                            >
-                                                <img src={m.src} class="w-full h-full object-cover transition-opacity opacity-70 group-hover:opacity-100" />
-                                                <div class="absolute inset-0 bg-blue-500/0 group-hover:bg-blue-500/10 transition-colors flex items-center justify-center">
-                                                     <svg class="w-6 h-6 text-white opacity-0 group-hover:opacity-100 transition-all transform scale-75 group-hover:scale-100 drop-shadow-md" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
-                                                </div>
-                                            </button>
-                                        ))}
-                                    </div>
-                                </div>
-
                             </div>
                         ))}
                     </div>
+
+                    <!-- Botón Siguiente Empresa -->
+                    <button class="next-company absolute -right-2 md:-right-12 lg:-right-16 z-20 p-3 rounded-full bg-white/5 hover:bg-white/10 text-white backdrop-blur-sm transition-all border border-white/5 hover:border-blue-500/30 shadow-lg group">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 md:w-8 md:h-8 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                    </button>
                 </div>
-            ))}
-        </div>
-
-        <!-- Botón Siguiente Empresa -->
-        <button id="next-company" class="absolute -right-2 md:-right-12 lg:-right-16 z-20 p-3 rounded-full bg-white/5 hover:bg-white/10 text-white backdrop-blur-sm transition-all border border-white/5 hover:border-blue-500/30 shadow-lg group">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 md:w-8 md:h-8 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-        </button>
-    </div>
-
+            </div>
+        )}
+      </div>
+    ))}
   </div>
 
   <!-- Lightbox -->
   <div id="lightbox" class="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
-      <button id="close-lightbox" class="absolute top-6 right-6 text-white/50 hover:text-white transition z-50 p-2 hover:bg-white/10 rounded-full">
+      <button id="close-lightbox" class="absolute top-6 right-6 text-white/70 hover:text-white transition z-50 p-2 hover:bg-white/20 bg-black/50 border border-white/10 rounded-full backdrop-blur-md">
         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+      </button>
+
+      <button id="lb-prev" class="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 p-3 md:p-4 text-white/80 hover:text-white bg-black/60 hover:bg-black/90 border border-white/10 rounded-full transition outline-none z-50 backdrop-blur-md shadow-2xl">
+        <svg class="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+      </button>
+      
+      <button id="lb-next" class="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 p-3 md:p-4 text-white/80 hover:text-white bg-black/60 hover:bg-black/90 border border-white/10 rounded-full transition outline-none z-50 backdrop-blur-md shadow-2xl">
+        <svg class="w-8 h-8 md:w-10 md:h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
       </button>
 
       <div class="relative w-full max-w-7xl h-full flex flex-col items-center justify-center p-4">
           <div id="lightbox-content" class="relative w-full h-[85vh] flex items-center justify-center">
               <img id="lightbox-img" src="" class="max-w-full max-h-full object-contain rounded-lg shadow-2xl" />
           </div>
-          
-          <button id="lb-prev" class="absolute left-4 top-1/2 -translate-y-1/2 p-4 text-white/50 hover:text-white hover:bg-white/10 rounded-full transition outline-none">
-            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
-          </button>
-          <button id="lb-next" class="absolute right-4 top-1/2 -translate-y-1/2 p-4 text-white/50 hover:text-white hover:bg-white/10 rounded-full transition outline-none">
-            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-          </button>
       </div>
   </div>
 </section>
 
 <script define:vars={{ EXPERIENCES }}>
-  let currentCompanyIdx = 0;
-  let projectIndices = new Array(EXPERIENCES.length).fill(0);
-  
-  const companySlides = document.querySelectorAll('.company-slide');
-  const companyTitle = document.getElementById('company-title');
-  const companyDate = document.getElementById('company-date');
-  const nextCompanyBtn = document.getElementById('next-company');
-  const prevCompanyBtn = document.getElementById('prev-company');
-  
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightbox-img');
-  const lbNext = document.getElementById('lb-next');
-  const lbPrev = document.getElementById('lb-prev');
-  const lbClose = document.getElementById('close-lightbox');
+  let currentCategory = 'empleo';
 
-  let lbCompanyIdx = 0;
-  let lbProjectIdx = 0;
-  let lbMediaIdx = 0;
+  const state = {};
+  Object.keys(EXPERIENCES).forEach(cat => {
+    state[cat] = {
+      currentCompanyIdx: 0,
+      projectIndices: new Array(EXPERIENCES[cat].length).fill(0)
+    };
+  });
+  
+  const tabs = document.querySelectorAll('.category-tab');
+  const sections = document.querySelectorAll('.category-section');
 
-  function updateCompany() {
-    companySlides.forEach((slide, idx) => {
-        if(idx === currentCompanyIdx) {
+  tabs.forEach(tab => {
+      tab.addEventListener('click', (e) => {
+          const cat = e.currentTarget.dataset.category;
+          if(cat === currentCategory) return;
+          
+          tabs.forEach(t => {
+              if (t.dataset.category === cat) {
+                  t.classList.remove('bg-gray-800', 'text-gray-400', 'border-gray-700', 'hover:border-gray-500');
+                  t.classList.add('bg-blue-600', 'text-white', 'shadow-lg', 'shadow-blue-500/30', 'border-transparent');
+              } else {
+                  t.classList.add('bg-gray-800', 'text-gray-400', 'border-gray-700', 'hover:border-gray-500');
+                  t.classList.remove('bg-blue-600', 'text-white', 'shadow-lg', 'shadow-blue-500/30', 'border-transparent');
+              }
+          });
+
+          sections.forEach(sec => {
+              if (sec.dataset.category === cat) {
+                  sec.style.display = 'block';
+                  requestAnimationFrame(() => sec.style.opacity = '1');
+              } else {
+                  sec.style.opacity = '0';
+                  setTimeout(() => sec.style.display = 'none', 300);
+              }
+          });
+
+          currentCategory = cat;
+          updateCompany(cat);
+      });
+  });
+
+  function updateCompany(cat) {
+    if(!EXPERIENCES[cat] || EXPERIENCES[cat].length === 0) return;
+    const sec = document.querySelector(`.category-section.${cat}`);
+    if(!sec) return;
+    
+    const slides = sec.querySelectorAll('.company-slide');
+    const title = sec.querySelector('.company-title');
+    const date = sec.querySelector('.company-date');
+    
+    const idx = state[cat].currentCompanyIdx;
+    
+    slides.forEach((slide, i) => {
+        if(i === idx) {
             slide.style.visibility = 'visible';
             slide.style.opacity = '1';
             slide.style.zIndex = '10';
@@ -308,54 +360,73 @@ const EXPERIENCES = [
             slide.style.opacity = '0';
             slide.style.zIndex = '0';
             slide.style.pointerEvents = 'none';
-            setTimeout(() => { if(idx !== currentCompanyIdx) slide.style.visibility = 'hidden'; }, 500);
+            setTimeout(() => { if(i !== state[cat].currentCompanyIdx) slide.style.visibility = 'hidden'; }, 500);
         }
     });
 
-    if (EXPERIENCES[currentCompanyIdx]) {
-        companyTitle.textContent = EXPERIENCES[currentCompanyIdx].company;
-        if (companyDate) {
-            companyDate.textContent = EXPERIENCES[currentCompanyIdx].date;
-        }
+    if (EXPERIENCES[cat][idx]) {
+        if(title) title.textContent = EXPERIENCES[cat][idx].company;
+        if(date) date.textContent = EXPERIENCES[cat][idx].date;
     }
   }
 
-  updateCompany();
-
-  nextCompanyBtn.addEventListener('click', () => {
-    currentCompanyIdx = (currentCompanyIdx + 1) % EXPERIENCES.length;
-    updateCompany();
+  document.querySelectorAll('.next-company').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+          const cat = e.currentTarget.closest('.category-section').dataset.category;
+          const max = EXPERIENCES[cat].length;
+          if(max === 0) return;
+          state[cat].currentCompanyIdx = (state[cat].currentCompanyIdx + 1) % max;
+          updateCompany(cat);
+      });
   });
 
-  prevCompanyBtn.addEventListener('click', () => {
-    currentCompanyIdx = (currentCompanyIdx - 1 + EXPERIENCES.length) % EXPERIENCES.length;
-    updateCompany();
+  document.querySelectorAll('.prev-company').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+          const cat = e.currentTarget.closest('.category-section').dataset.category;
+          const max = EXPERIENCES[cat].length;
+          if(max === 0) return;
+          state[cat].currentCompanyIdx = (state[cat].currentCompanyIdx - 1 + max) % max;
+          updateCompany(cat);
+      });
   });
 
   document.querySelectorAll('.next-project').forEach(btn => {
       btn.addEventListener('click', (e) => {
-          const cIdx = parseInt(e.currentTarget.getAttribute('data-company-idx'));
-          const max = EXPERIENCES[cIdx].projects.length;
-          projectIndices[cIdx] = (projectIndices[cIdx] + 1) % max;
-          updateProjectSlide(cIdx);
+          const cat = btn.dataset.category;
+          const cIdx = parseInt(btn.dataset.companyIdx);
+          const max = EXPERIENCES[cat][cIdx].projects.length;
+          state[cat].projectIndices[cIdx] = (state[cat].projectIndices[cIdx] + 1) % max;
+          updateProjectSlide(cat, cIdx);
+          updateProjectCounter(btn.closest('.project-slide').querySelector('.project-counter').parentNode, state[cat].projectIndices[cIdx] + 1, max);
       });
   });
 
   document.querySelectorAll('.prev-project').forEach(btn => {
       btn.addEventListener('click', (e) => {
-          const cIdx = parseInt(e.currentTarget.getAttribute('data-company-idx'));
-          const max = EXPERIENCES[cIdx].projects.length;
-          projectIndices[cIdx] = (projectIndices[cIdx] - 1 + max) % max;
-          updateProjectSlide(cIdx);
+          const cat = btn.dataset.category;
+          const cIdx = parseInt(btn.dataset.companyIdx);
+          const max = EXPERIENCES[cat][cIdx].projects.length;
+          state[cat].projectIndices[cIdx] = (state[cat].projectIndices[cIdx] - 1 + max) % max;
+          updateProjectSlide(cat, cIdx);
+          updateProjectCounter(btn.closest('.project-slide').querySelector('.project-counter').parentNode, state[cat].projectIndices[cIdx] + 1, max);
       });
   });
 
-  function updateProjectSlide(companyIdx) {
-      const companyContainer = document.querySelector(`.company-slide[data-company-index="${companyIdx}"]`);
+  function updateProjectCounter(container, current, max) {
+      if(!container) return;
+      const counter = container.querySelector('.project-counter');
+      if(counter) counter.textContent = `${current}/${max}`;
+  }
+
+  function updateProjectSlide(cat, companyIdx) {
+      const sec = document.querySelector(`.category-section.${cat}`);
+      if(!sec) return;
+      const companyContainer = sec.querySelector(`.company-slide[data-company-index="${companyIdx}"]`);
+      if(!companyContainer) return;
+
       const slides = companyContainer.querySelectorAll('.project-slide');
+      const current = state[cat].projectIndices[companyIdx];
       
-      const current = projectIndices[companyIdx];
-      // Update slide visibility
       slides.forEach((slide, idx) => {
           if (idx === current) {
               slide.style.opacity = '1';
@@ -367,11 +438,21 @@ const EXPERIENCES = [
               slide.style.position = 'absolute';
           }
       });
-
   }
 
-  // Lightbox
-  function openLightbox(cIdx, pIdx, mIdx) {
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const lbNext = document.getElementById('lb-next');
+  const lbPrev = document.getElementById('lb-prev');
+  const lbClose = document.getElementById('close-lightbox');
+
+  let lbCat = 'empleo';
+  let lbCompanyIdx = 0;
+  let lbProjectIdx = 0;
+  let lbMediaIdx = 0;
+
+  function openLightbox(cat, cIdx, pIdx, mIdx) {
+      lbCat = cat;
       lbCompanyIdx = cIdx;
       lbProjectIdx = pIdx;
       lbMediaIdx = mIdx;
@@ -388,7 +469,10 @@ const EXPERIENCES = [
   }
 
   function updateLightboxContent() {
-      const media = EXPERIENCES[lbCompanyIdx].projects[lbProjectIdx].media[lbMediaIdx];
+      let mParams;
+      try { mParams = EXPERIENCES[lbCat][lbCompanyIdx].projects[lbProjectIdx].media; } catch(e) { return ; }
+      if (!mParams || !mParams[lbMediaIdx]) return;
+      const media = mParams[lbMediaIdx];
       if (media.type === 'image') {
           lightboxImg.src = media.src;
       }
@@ -397,10 +481,11 @@ const EXPERIENCES = [
   document.addEventListener('click', (e) => {
     const trigger = e.target.closest('[data-action="open-lightbox"]');
     if (trigger) {
+        const cat = trigger.dataset.category;
         const cIdx = parseInt(trigger.dataset.companyIdx);
         const pIdx = parseInt(trigger.dataset.projectIdx);
         const mIdx = parseInt(trigger.dataset.mediaIdx);
-        openLightbox(cIdx, pIdx, mIdx);
+        openLightbox(cat, cIdx, pIdx, mIdx);
     }
   });
 
@@ -411,15 +496,19 @@ const EXPERIENCES = [
 
   lbNext.addEventListener('click', (e) => {
       e.stopPropagation();
-      const mediaParams = EXPERIENCES[lbCompanyIdx].projects[lbProjectIdx].media;
-      lbMediaIdx = (lbMediaIdx + 1) % mediaParams.length;
+      let mParams;
+      try { mParams = EXPERIENCES[lbCat][lbCompanyIdx].projects[lbProjectIdx].media; } catch(e) { return; }
+      if(!mParams) return;
+      lbMediaIdx = (lbMediaIdx + 1) % mParams.length;
       updateLightboxContent();
   });
 
   lbPrev.addEventListener('click', (e) => {
       e.stopPropagation();
-      const mediaParams = EXPERIENCES[lbCompanyIdx].projects[lbProjectIdx].media;
-      lbMediaIdx = (lbMediaIdx - 1 + mediaParams.length) % mediaParams.length;
+      let mParams;
+      try { mParams = EXPERIENCES[lbCat][lbCompanyIdx].projects[lbProjectIdx].media; } catch(e) { return; }
+      if(!mParams) return;
+      lbMediaIdx = (lbMediaIdx - 1 + mParams.length) % mParams.length;
       updateLightboxContent();
   });
 
@@ -429,4 +518,6 @@ const EXPERIENCES = [
       if (e.key === 'ArrowRight') lbNext.click();
       if (e.key === 'ArrowLeft') lbPrev.click();
   });
+  
+  Object.keys(EXPERIENCES).forEach(cat => updateCompany(cat));
 </script>
