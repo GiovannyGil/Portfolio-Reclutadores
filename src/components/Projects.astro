@@ -233,12 +233,12 @@ const EXPERIENCES = {
                     </button>
 
                     <!-- Card Container -->
-                    <div class="company-container relative w-full overflow-hidden bg-gray-900/40 backdrop-blur-md rounded-2xl border border-gray-700/50 shadow-2xl min-h-[550px]">
+                    <div class="company-container relative w-full overflow-hidden bg-gray-900/40 backdrop-blur-md rounded-2xl border border-gray-700/50 shadow-2xl min-h-[550px] max-h-[700px]">
                         {exps.map((exp, companyIdx) => (
                             <div data-company-index={companyIdx} class="company-slide absolute inset-0 w-full h-full flex flex-col p-6 md:p-10 transition-opacity duration-500" style={companyIdx === 0 ? "opacity: 1; pointer-events: auto; z-index: 10;" : "opacity: 0; pointer-events: none; z-index: 0;"}>
                                 <div class="relative flex-1">
                                     {exp.projects.map((project, projectIdx) => (
-                                        <div data-project-index={projectIdx} class="project-slide w-full h-full flex flex-col transition-opacity duration-300 absolute inset-0" style={projectIdx === 0 ? "opacity: 1; pointer-events: auto; position: relative;" : "opacity: 0; pointer-events: none; position: absolute;"}>
+                                        <div data-project-index={projectIdx} class="project-slide w-full h-full flex flex-col transition-opacity duration-300 absolute inset-0 overflow-y-auto custom-scrollbar p-1" style={projectIdx === 0 ? "opacity: 1; pointer-events: auto; position: relative;" : "opacity: 0; pointer-events: none; position: absolute;"}>
                                             
                                             <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6 border-b border-gray-700/30 pb-4">
                                                 <h4 class="text-3xl font-bold text-white tracking-tight">
@@ -273,10 +273,10 @@ const EXPERIENCES = {
                                             </div>
 
                                             <div class="mt-8 pt-6 border-t border-gray-700/30">
-                                                <div class="flex justify-center flex-wrap gap-4 items-center">
+                                                <div class="media-gallery flex gap-4 items-center overflow-x-auto pb-4 custom-scrollbar scroll-smooth">
                                                     {project.media.map((m, mIdx) => (
                                                         <button 
-                                                            class={`relative flex-shrink-0 rounded-lg overflow-hidden border border-gray-700 hover:border-blue-400/50 transition-all duration-300 transform hover:scale-105 bg-gray-800 shadow-sm group ${m.style === 'mobile' ? 'w-18 h-32' : 'w-48 h-32'}`}
+                                                            class={`relative flex-shrink-0 rounded-lg overflow-hidden border border-gray-700 hover:border-blue-400/50 transition-all duration-300 transform hover:scale-105 bg-gray-800 shadow-sm group ${m.style === 'mobile' ? 'w-24 h-40' : 'w-64 h-40'}`}
                                                             data-action="open-lightbox"
                                                             data-category={category}
                                                             data-company-idx={companyIdx}
@@ -285,7 +285,7 @@ const EXPERIENCES = {
                                                         >
                                                             <img src={m.src} class="w-full h-full object-cover transition-opacity opacity-70 group-hover:opacity-100" />
                                                             <div class="absolute inset-0 bg-blue-500/0 group-hover:bg-blue-500/10 transition-colors flex items-center justify-center">
-                                                                <svg class="w-6 h-6 text-white opacity-0 group-hover:opacity-100 transition-all transform scale-75 group-hover:scale-100 drop-shadow-md" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                                                                <svg class="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-all transform scale-75 group-hover:scale-100 drop-shadow-md" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
                                                             </div>
                                                         </button>
                                                     ))}
@@ -331,6 +331,34 @@ const EXPERIENCES = {
       </div>
   </div>
 </section>
+
+<style>
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(59, 130, 246, 0.3);
+    border-radius: 10px;
+    transition: all 0.3s;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(59, 130, 246, 0.6);
+  }
+  
+  /* Media gallery adjustments */
+  .media-gallery {
+    cursor: grab;
+    user-select: none;
+  }
+  .media-gallery:active {
+    cursor: grabbing;
+  }
+</style>
 
 <script define:vars={{ EXPERIENCES }}>
   let currentCategory = 'empleo';
@@ -555,6 +583,44 @@ const EXPERIENCES = {
       if (e.key === 'ArrowRight') lbNext.click();
       if (e.key === 'ArrowLeft') lbPrev.click();
   });
+  
+  // Drag to scroll functionality for galleries
+  function initDragScroll() {
+    const galleries = document.querySelectorAll('.media-gallery');
+    galleries.forEach(gallery => {
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        gallery.addEventListener('mousedown', (e) => {
+            isDown = true;
+            gallery.style.cursor = 'grabbing';
+            startX = e.pageX - gallery.offsetLeft;
+            scrollLeft = gallery.scrollLeft;
+        });
+
+        gallery.addEventListener('mouseleave', () => {
+            isDown = false;
+            gallery.style.cursor = 'grab';
+        });
+
+        gallery.addEventListener('mouseup', () => {
+            isDown = false;
+            gallery.style.cursor = 'grab';
+        });
+
+        gallery.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - gallery.offsetLeft;
+            const walk = (x - startX) * 2;
+            gallery.scrollLeft = scrollLeft - walk;
+        });
+    });
+  }
+
+  // Initialize
+  initDragScroll();
   
   Object.keys(EXPERIENCES).forEach(cat => updateCompany(cat));
 </script>
