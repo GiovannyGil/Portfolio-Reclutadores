@@ -25,16 +25,12 @@ const navItems = [
 ];
 ---
 
-<header
-  class="fixed top-0 z-10 flex items-center justify-center w-full mx-auto mt-2"
->
-  <nav
-    class="flex px-3 text-sm font-medium rounded-full text-gray-600 justify-center items-center"
-  >
+<header class="header-container">
+  <nav class="nav-menu">
     {
       navItems.map((link) => (
         <a
-          class="relative block px-2 py-2 transition hover:text-orange-700"
+          class="nav-item"
           aria-label={link.label}
           href={link.url}
         >
@@ -55,9 +51,9 @@ const navItems = [
         if (entry.isIntersecting) {
           navItems.forEach((item) => {
             if (item.getAttribute("aria-label") == entry.target.id) {
-              item.classList.add("text-yellow-500");
+              item.classList.add("active");
             } else {
-              item.classList.remove("text-yellow-500");
+              item.classList.remove("active");
             }
           });
         }
@@ -88,15 +84,55 @@ const navItems = [
 </script>
 
 <style>
-  nav {
+  .header-container {
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0.5rem;
+  }
+
+  .nav-menu {
+    display: flex;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border-radius: 9999px;
+    color: #d1d5db; /* text-gray-300 to contrast dark bg */
+    justify-content: center;
+    align-items: center;
     animation: nav-shadown 1s linear both;
     animation-timeline: scroll();
     animation-range: 0 100px;
   }
 
+  .nav-item {
+    position: relative;
+    display: block;
+    padding: 0.5rem;
+    transition: color 150ms ease-in-out;
+  }
+
+  .nav-item:hover {
+    color: #c2410c; /* hover:text-orange-700 */
+  }
+
+  .nav-item.active {
+    color: #eab308; /* text-yellow-500 */
+  }
+
   @keyframes nav-shadown {
     to {
-      @apply shadow-lg ring-1 backdrop-blur dark:bg-gray-800/90 bg-white/50 ring-white/10;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -2px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      background-color: rgba(31, 41, 55, 0.9); /* dark:bg-gray-800/90 */
     }
   }
 </style>

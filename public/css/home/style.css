@@ -11,7 +11,7 @@
         }
         /* Section 1 */
         .main {
-        padding: 3rem 0 6rem 0;
+        padding: 8rem 0 6rem 0;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(177px, 1fr));
         /* row-gap: 1rem; */

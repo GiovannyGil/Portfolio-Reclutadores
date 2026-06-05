@@ -9,12 +9,28 @@ import "/public/css/slide/carrusel.css";
 ---
 
 <div class="container" id="Tools">
-  <h1
-    class="text-4xl font-bold text-white-800 dark:text-gray-100 text-center mb-4 pt-5"
-  >
+  <h1 class="tools-title">
     <FormattedText text={{ es: "Herramientas", en: "Tools" }} />
   </h1>
   <SlideTools />
   <SlideTech />
   <SlideLenguahes />
 </div>
+
+<style>
+  .tools-title {
+    font-size: 2.25rem; /* text-4xl */
+    line-height: 2.5rem;
+    font-weight: 700; /* font-bold */
+    text-align: center; /* text-center */
+    margin-bottom: 1rem; /* mb-4 */
+    padding-top: 1.25rem; /* pt-5 */
+    color: #ffffff; /* text-white-800 roughly (or white) */
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .tools-title {
+      color: #f3f4f6; /* dark:text-gray-100 */
+    }
+  }
+</style>
