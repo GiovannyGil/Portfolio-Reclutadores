@@ -1,0 +1,309 @@
+---
+import FormattedText from "./i18n/FormattedText.astro";
+const { id } = Astro.props;
+
+// Ajustamos los niveles para que se vea más relleno (Cloud subido a 4, etc.)
+const userSkills = [
+  { name: "Frontend / UI", score: 4, color: "#0097c2" }, // Top Right (Cyan)
+  { name: "Backend / APIs", score: 4, color: "#005ba3" }, // Right (Blue)
+  { name: "Cloud & DevOps", score: 1, color: "#351c8a" }, // Left (Violet)
+  { name: "Bases de Datos", score: 3, color: "#2b3a94" }, // Top Left (Dark Blue)
+  { name: "Trabajo en Equipo", score: 3, color: "#680091" }, // Bottom Right (Magenta)
+  { name: "Resolución", score: 4, color: "#8800a0" }, // Bottom Left (Purple)
+];
+
+const center = { x: 400, y: 400 };
+const innerRingRadius = 110;
+const ringThickness = 45;
+const bandStartRadius = innerRingRadius + ringThickness; // 155
+const bandThickness = 28;
+const gapAngle = 1;
+const totalBands = 5;
+
+function polarToCartesian(cx, cy, r, angleDeg) {
+  const angleRad = ((angleDeg - 90) * Math.PI) / 180.0;
+  return {
+    x: cx + r * Math.cos(angleRad),
+    y: cy + r * Math.sin(angleRad),
+  };
+}
+
+function describeArc(cx, cy, innerR, outerR, startAngle, endAngle) {
+  const startOut = polarToCartesian(cx, cy, outerR, endAngle);
+  const endOut = polarToCartesian(cx, cy, outerR, startAngle);
+  const startIn = polarToCartesian(cx, cy, innerR, endAngle);
+  const endIn = polarToCartesian(cx, cy, innerR, startAngle);
+  const largeArcFlag = endAngle - startAngle <= 180 ? "0" : "1";
+
+  return [
+    "M",
+    startOut.x,
+    startOut.y,
+    "A",
+    outerR,
+    outerR,
+    0,
+    largeArcFlag,
+    0,
+    endOut.x,
+    endOut.y,
+    "L",
+    endIn.x,
+    endIn.y,
+    "A",
+    innerR,
+    innerR,
+    0,
+    largeArcFlag,
+    1,
+    startIn.x,
+    startIn.y,
+    "Z",
+  ].join(" ");
+}
+
+// Función para generar la curva donde irá el texto (para que sea curvo y legible)
+function describeTextPath(cx, cy, r, startAngle, endAngle) {
+  let midAngle = (startAngle + endAngle) / 2;
+  midAngle = ((midAngle % 360) + 360) % 360;
+
+  if (midAngle > 90 && midAngle < 270) {
+    // Mitad inferior: de derecha a izquierda para que no quede de cabeza
+    const start = polarToCartesian(cx, cy, r, endAngle);
+    const end = polarToCartesian(cx, cy, r, startAngle);
+    return `M ${start.x} ${start.y} A ${r} ${r} 0 0 0 ${end.x} ${end.y}`;
+  } else {
+    // Mitad superior: de izquierda a derecha
+    const start = polarToCartesian(cx, cy, r, startAngle);
+    const end = polarToCartesian(cx, cy, r, endAngle);
+    return `M ${start.x} ${start.y} A ${r} ${r} 0 0 1 ${end.x} ${end.y}`;
+  }
+}
+---
+
+<section id={id} class="skills-graph-section">
+  <div class="card-container">
+    <h2>
+      <FormattedText
+        text={{ es: "Mi Huella Profesional", en: "My Professional Footprint" }}
+      />
+    </h2>
+    <div class="chart-wrapper">
+      <svg
+        viewBox="100 100 600 600"
+        class="polar-chart"
+        preserveAspectRatio="xMidYMid meet"
+        style="overflow: visible;"
+      >
+        <defs>
+          <clipPath id="center-img-clip">
+            <circle cx="400" cy="400" r="108"></circle>
+          </clipPath>
+
+          {
+            userSkills.map((skill, index) => {
+              const baseAngle = 30;
+              const anglePerSkill = 360 / userSkills.length;
+              const startAngle =
+                baseAngle + index * anglePerSkill + gapAngle / 2;
+              const endAngle =
+                baseAngle + (index + 1) * anglePerSkill - gapAngle / 2;
+              const midAngle = (startAngle + endAngle) / 2;
+
+              // Ajustamos el radio del texto interior y exterior
+              // Si el texto está en la mitad inferior, el path va por debajo, hay que ajustar un poco el radio
+              let isBottom = midAngle > 90 && midAngle < 270;
+              const innerTextRadius = isBottom
+                ? innerRingRadius + ringThickness / 2 + 6
+                : innerRingRadius + ringThickness / 2 - 2;
+
+              return (
+                <g>
+                  <path
+                    id={`inner-text-path-${index}`}
+                    d={describeTextPath(
+                      center.x,
+                      center.y,
+                      innerTextRadius,
+                      startAngle,
+                      endAngle,
+                    )}
+                  />
+                </g>
+              );
+            })
+          }
+        </defs>
+
+        {
+          userSkills.map((skill, index) => {
+            const baseAngle = 30;
+            const anglePerSkill = 360 / userSkills.length;
+            const startAngle = baseAngle + index * anglePerSkill + gapAngle / 2;
+            const endAngle =
+              baseAngle + (index + 1) * anglePerSkill - gapAngle / 2;
+
+            let r = parseInt(skill.color.slice(1, 3), 16),
+              g = parseInt(skill.color.slice(3, 5), 16),
+              b = parseInt(skill.color.slice(5, 7), 16);
+            const emptyColor = `rgba(${r}, ${g}, ${b}, 0.12)`;
+
+            const innerRingPath = describeArc(
+              center.x,
+              center.y,
+              innerRingRadius,
+              innerRingRadius + ringThickness,
+              startAngle,
+              endAngle,
+            );
+
+            const bands = [];
+            for (let i = 0; i < totalBands; i++) {
+              const innerR = bandStartRadius + i * bandThickness;
+              const outerR = innerR + bandThickness;
+              const isFilled = i < skill.score;
+              bands.push({
+                path: describeArc(
+                  center.x,
+                  center.y,
+                  innerR,
+                  outerR,
+                  startAngle,
+                  endAngle,
+                ),
+                fill: isFilled ? skill.color : emptyColor,
+                stroke: isFilled ? "#fff" : "rgba(255,255,255,0.1)",
+              });
+            }
+
+            return (
+              <g class="skill-group">
+                <path
+                  d={innerRingPath}
+                  fill="#ffffff"
+                  stroke="#1b1d1f"
+                  stroke-width="2"
+                />
+
+                <text
+                  fill={skill.color}
+                  font-size="15"
+                  font-weight="bold"
+                  font-family="'Outfit', sans-serif"
+                >
+                  <textPath
+                    href={`#inner-text-path-${index}`}
+                    startOffset="50%"
+                    text-anchor="middle"
+                  >
+                    {skill.name}
+                  </textPath>
+                </text>
+
+                {bands.map((band, i) => (
+                  <path
+                    d={band.path}
+                    fill={band.fill}
+                    stroke={band.stroke}
+                    stroke-width="1.5"
+                    class={`skill-band ${i < skill.score ? "filled" : "empty"}`}
+                  />
+                ))}
+              </g>
+            );
+          })
+        }
+
+        <circle cx="400" cy="400" r="110" fill="#ffffff"></circle>
+        <image
+          href="https://avatars.githubusercontent.com/u/102708414?v=4"
+          x="290"
+          y="290"
+          width="220"
+          height="220"
+          clip-path="url(#center-img-clip)"
+          preserveAspectRatio="xMidYMid slice"
+        />
+      </svg>
+    </div>
+  </div>
+</section>
+
+<style>
+  .skills-graph-section {
+    padding: 40px 20px;
+    text-align: center;
+    width: 100%;
+    background-color: #1b1d1f; /* Fondo general de la página */
+  }
+
+  .card-container {
+    /* Fondo mucho más claro para que resalte como una tarjeta sobre el #1b1d1f */
+    background-color: #272a2e;
+    border-radius: 35px;
+    /* Sombra exterior fuerte negra y una pequeña luz interior en el borde superior */
+    box-shadow:
+      0 30px 60px rgba(0, 0, 0, 0.6),
+      inset 0 2px 0 rgba(255, 255, 255, 0.05);
+    padding: 40px 30px;
+    margin: 0 auto;
+    max-width: 650px;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Borde visible */
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .chart-wrapper {
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .polar-chart {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0px 10px 30px rgba(0, 0, 0, 0.3));
+  }
+
+  .skill-group {
+    transform-origin: 400px 400px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    cursor: pointer;
+  }
+
+  /* Cuando el usuario hace hover en CUALQUIER parte del gráfico */
+  .polar-chart:hover .skill-group {
+    transform: scale(0.95);
+    opacity: 0.4;
+    filter: grayscale(80%) brightness(1.2);
+  }
+
+  /* Excepción para el grupo que específicamente está siendo "hovered" */
+  .polar-chart .skill-group:hover {
+    transform: scale(1.08);
+    opacity: 1;
+    filter: grayscale(0%) brightness(1.1);
+  }
+
+  .skill-band {
+    transition: all 0.3s ease;
+  }
+
+  @media screen and (max-width: 768px) {
+    .card-container {
+      padding: 30px 15px;
+      border-radius: 20px;
+    }
+    h2 {
+      font-size: 1.8rem;
+    }
+  }
+</style>

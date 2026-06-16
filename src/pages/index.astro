@@ -3,16 +3,18 @@ import Layout from "../layouts/Layout.astro";
 import SectionContainer from "../components/SectionContainer.astro";
 import Projects from "../components/Projects.astro";
 import Carrusel from "../components/Carrusel.astro";
+import SkillsGraph from "../components/SkillsGraph.astro";
 ---
 
 <Layout
   title="Giovanny"
   description="Giovanny is a software engineer based in Medellín, Colombia. He is a full-stack developer with experience in Angular,  React, PHP, Astro, Node.js(Express, NestJS), React Native, Kotlin and Python."
-  >
+>
   <body>
     <main class="contenido">
       <SectionContainer id="Home" />
       <Projects id="Projects" />
+      <SkillsGraph id="Skills" />
       <!-- <Cards id="Tools" /> -->
 
       <Carrusel id="#Tools" />
@@ -29,6 +31,6 @@ import Carrusel from "../components/Carrusel.astro";
     background-color: #1b1d1f;
   }
   .contenido {
-    margin: 0 7% 0 6%;
+    margin: 0 2% 0 3%;
   }
 </style>
