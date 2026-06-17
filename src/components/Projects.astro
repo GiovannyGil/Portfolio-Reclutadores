@@ -1,12 +1,75 @@
 ---
 import FormattedText from "./i18n/FormattedText.astro";
 
+// Icons
+import AngularIcon from "./Icons/Technologies/Angular.astro";
+import DjangoIcon from "./Icons/Technologies/Django.astro";
+import ExpressIcon from "./Icons/Technologies/Express.astro";
+import IonicIcon from "./Icons/Technologies/Ionic.astro";
+import NestjsIcon from "./Icons/Technologies/Nestjs.astro";
+import NodejsIcon from "./Icons/Technologies/Nodejs.astro";
+import ReactIcon from "./Icons/Technologies/React.astro";
+import TypeScriptIcon from "./Icons/Technologies/TypeScript.astro";
+import DotnetIcon from "./Icons/Technologies/dotnet.astro";
+import TailwindcssIcon from "./Icons/Technologies/tailwindcss.astro";
+
+import JavaScriptIcon from "./Icons/Lenguages/JavaScript.astro";
+import PythonIcon from "./Icons/Lenguages/Python.astro";
+import KotlinIcon from "./Icons/Lenguages/kotlin.astro";
+import PhpIcon from "./Icons/Lenguages/php.astro";
+import SqlIcon from "./Icons/Lenguages/sql.astro";
+
+import AndroidStudioIcon from "./Icons/Tools/AndroidStudio.astro";
+import DiscordIcon from "./Icons/Tools/Discord.astro";
+import FigmaIcon from "./Icons/Tools/Figma.astro";
+import GitIcon from "./Icons/Tools/Git.astro";
+import GithubIcon from "./Icons/Tools/Github.astro";
+import MySQLIcon from "./Icons/Tools/MySQL.astro";
+import PostmanIcon from "./Icons/Tools/Postman.astro";
+import SQLServerIcon from "./Icons/Tools/SQLServer.astro";
+import VSCIcon from "./Icons/Tools/VSC.astro";
+import MongoDBIcon from "./Icons/Tools/mongoDB.astro";
+import SqliteIcon from "./Icons/Tools/sqlite.astro";
+
+const IconMap: Record<string, any> = {
+  "Angular": AngularIcon,
+  "Django": DjangoIcon,
+  "Express": ExpressIcon,
+  "Ionic": IonicIcon,
+  "Nestjs": NestjsIcon,
+  "Node.js": NodejsIcon,
+  "React": ReactIcon,
+  "React Native": ReactIcon,
+  "TypeScript": TypeScriptIcon,
+  "dotnet": DotnetIcon,
+  "Tailwind CSS": TailwindcssIcon,
+  
+  "JavaScript": JavaScriptIcon,
+  "Python": PythonIcon,
+  "Kotlin": KotlinIcon,
+  "PHP": PhpIcon,
+  "SQL": SqlIcon,
+  
+  "Android Studio": AndroidStudioIcon,
+  "Discord": DiscordIcon,
+  "Figma": FigmaIcon,
+  "Git": GitIcon,
+  "GitHub": GithubIcon,
+  "MySQL": MySQLIcon,
+  "Postman": PostmanIcon,
+  "SQL Server": SQLServerIcon,
+  "VS Code": VSCIcon,
+  "MongoDB": MongoDBIcon,
+  "SQLite3": SqliteIcon
+};
+
 // experiencia laboral (tanto en empleo formal, así como independiente)
 const EXPERIENCES = {
     empleo: [
         {
             company: "ABI DATA S.A.S",
             date: "01/09/2025 - presente",
+            modalidad: "REMOTO",
             projects: [
                 {
                     title: {es: "Desarrollo de APP SUNNEL", en: "SUNNEL App Development"},
@@ -115,6 +178,7 @@ const EXPERIENCES = {
         {
             company: "OPA S.A.S",
             date: "04/06/2024 - 27/08/2025",
+            modalidad: "Presencial",
             projects: [
                 {
                     title: { es: "Desarrollo y mantenimiento de aplicaciones móviles", en: "Mobile Application Development and Maintenance" },
@@ -148,6 +212,7 @@ const EXPERIENCES = {
         {
             company: "Tecnoparque nodo medellin",
             date: "01/07/2023 - 27/01/2024",
+            modalidad: "Presencial",
             projects: [
                 {
                     title: { es: "Reconocimiento Facial", en: "Facial Recognition" },
@@ -178,6 +243,7 @@ const EXPERIENCES = {
         {
             company: "SGNAN",
             date: "01/02/2023 - 01/06/2023",
+            modalidad: "Presencial",
             projects: [
                 {
                     title: { es: "SGNAN Control", en: "SGNAN Control" },
@@ -198,6 +264,7 @@ const EXPERIENCES = {
         {
             company: "Migozz",
             date: "15/09/2025 - 31/03/2026",
+            modalidad: "REMOTO",
             projects: [
                 {
                     title: { es: "Migozz App", en: "Migozz App" },
@@ -259,28 +326,24 @@ const EXPERIENCES = {
                 <p class="empty-state-text"><FormattedText text={{es: "Próximamente más proyectos", en: "More projects coming soon"}} /></p>
             </div>
         ) : (
-            <div class="relative w-full">
-                <!-- Título de la Empresa -->
-                <div class="company-header">
-                    <h3 class="company-title">
-                        {exps[0].company}
-                    </h3>
-                    <span class="company-date">
-                        {exps[0].date}
-                    </span>
-                </div>
-
-                <div class="carousel-wrapper">
-                    <!-- Botón Anterior Empresa -->
-                    <button class="prev-company nav-btn group">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="nav-icon prev-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
-                    </button>
-
-                    <!-- Card Container -->
-                    <div class="company-container">
+            <div class="coverflow-root">
+                <!-- 3D Coverflow Carousel -->
+                <div class="coverflow-viewport">
+                    <div class="coverflow-track">
                         {exps.map((exp, companyIdx) => (
-                            <div data-company-index={companyIdx} class="company-slide" style={companyIdx === 0 ? "opacity: 1; visibility: visible; z-index: 10;" : "opacity: 0; visibility: hidden; z-index: 0;"}>
-                                <div class="projects-wrapper">
+                            <div 
+                                data-company-index={companyIdx} 
+                                class={`coverflow-card ${companyIdx === 0 ? 'coverflow-active' : ''}`}
+                            >
+                                <!-- Company Header inside card -->
+                                <div class="card-company-header">
+                                    <h3 class="card-company-title">{exp.company}</h3>
+                                    <span class="card-company-date">{exp.date}</span>
+                                    <span class="card-company-modalidad">{exp.modalidad}</span>
+                                </div>
+
+                                <!-- Projects content -->
+                                <div class="card-projects-wrapper">
                                     {exp.projects.map((project, projectIdx) => (
                                         <div data-project-index={projectIdx} class="project-slide custom-scrollbar" style={projectIdx === 0 ? "opacity: 1; visibility: visible; position: relative; z-index: 10;" : "opacity: 0; visibility: hidden; position: absolute; z-index: 0;"}>
                                             
@@ -291,12 +354,12 @@ const EXPERIENCES = {
                                                 <div class="project-meta">
                                                     {exp.projects.length > 1 && (
                                                         <div class="project-pagination">
-                                                            <button class="prev-project p-nav" data-category={category} data-company-idx={companyIdx}>
-                                                                <svg class="p-nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+                                                            <button class="prev-project p-nav" data-category={category} data-company-idx={companyIdx} aria-label="Anterior proyecto" style="display:flex; align-items:center; justify-content:center;">
+                                                                <svg class="p-nav-icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
                                                             </button>
                                                             <span class="project-counter">{projectIdx + 1}/{exp.projects.length}</span>
-                                                            <button class="next-project p-nav" data-category={category} data-company-idx={companyIdx}>
-                                                                <svg class="p-nav-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                                                            <button class="next-project p-nav" data-category={category} data-company-idx={companyIdx} aria-label="Siguiente proyecto" style="display:flex; align-items:center; justify-content:center;">
+                                                                <svg class="p-nav-icon" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
                                                             </button>
                                                         </div>
                                                     )}
@@ -309,11 +372,15 @@ const EXPERIENCES = {
                                             </div>
 
                                             <div class="project-tags">
-                                                {(project.tags ?? []).map(tag => (
-                                                    <span class="tag">
-                                                        {tag}
-                                                    </span>
-                                                ))}
+                                                {(project.tags ?? []).map(tag => {
+                                                    const IconComponent = IconMap[tag];
+                                                    return (
+                                                        <span class="tag">
+                                                            {IconComponent && <span class="tag-icon"><IconComponent /></span>}
+                                                            {tag}
+                                                        </span>
+                                                    );
+                                                })}
                                             </div>
 
                                             <div class="media-section">
@@ -336,6 +403,8 @@ const EXPERIENCES = {
                                                 </div>
                                             </div>
 
+
+
                                         </div>
                                     ))}
                                 </div>
@@ -343,10 +412,20 @@ const EXPERIENCES = {
                         ))}
                     </div>
 
-                    <!-- Botón Siguiente Empresa -->
-                    <button class="next-company nav-btn group">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="nav-icon next-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+                    <!-- Navigation arrows INSIDE viewport for proper centering -->
+                    <button class="coverflow-nav coverflow-prev" aria-label="Previous company">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" /></svg>
                     </button>
+                    <button class="coverflow-nav coverflow-next" aria-label="Next company">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" /></svg>
+                    </button>
+                </div>
+
+                <!-- Dot indicators right below viewport -->
+                <div class="coverflow-dots">
+                    {exps.map((_, idx) => (
+                        <button class={`coverflow-dot ${idx === 0 ? 'coverflow-dot-active' : ''}`} data-dot-index={idx} aria-label={`Go to company ${idx + 1}`}></button>
+                    ))}
                 </div>
             </div>
         )}
@@ -487,118 +566,291 @@ const EXPERIENCES = {
     letter-spacing: 0.025em;
   }
 
-  .company-header {
-    text-align: center;
-    margin-bottom: 2rem;
-    padding-left: 3rem;
-    padding-right: 3rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  /* ==========================================
+     3D COVERFLOW CAROUSEL
+     ========================================== */
+  .coverflow-root {
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow-x: clip;
   }
 
-  .company-title {
-    font-size: 1.5rem;
+  .coverflow-viewport {
+    perspective: 1200px;
+    width: 100%;
+    position: relative;
+    height: 600px;
+    overflow: visible;
+  }
+  @media (max-width: 640px) {
+    .coverflow-viewport { height: 520px; }
+  }
+
+  .coverflow-track {
+    position: absolute;
+    inset: 0;
+    transform-style: preserve-3d;
+  }
+
+  /* Each company card in the coverflow */
+  .coverflow-card {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 65%;
+    max-width: 900px;
+    height: 100%;
+    background: rgba(17, 24, 39, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: 1.25rem;
+    border: 1px solid rgba(55, 65, 81, 0.5);
+    box-shadow: 0 25px 60px -12px rgba(0, 0, 0, 0.4);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    
+    transition: 
+      transform 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+      opacity 0.5s cubic-bezier(0.23, 1, 0.32, 1),
+      filter 0.5s cubic-bezier(0.23, 1, 0.32, 1),
+      box-shadow 0.5s ease;
+    
+    /* Default: hidden far away */
+    opacity: 0;
+    transform: translateX(100%) rotateY(-45deg) scale(0.6);
+    pointer-events: none;
+    filter: blur(2px) brightness(0.6);
+    z-index: 1;
+  }
+
+  @media (max-width: 900px) { 
+    .coverflow-card { 
+      width: 78%;
+      padding: 1.5rem;
+    } 
+  }
+
+  @media (max-width: 640px) { 
+    .coverflow-card { 
+      width: 85%;
+      padding: 1.25rem;
+    }
+  }
+
+  /* Active card - centered */
+  .coverflow-card[data-position="center"] {
+    transform: translateX(-50%) rotateY(0deg) scale(1);
+    opacity: 1;
+    z-index: 10;
+    pointer-events: auto;
+    filter: blur(0) brightness(1);
+    box-shadow: 
+      0 30px 70px -15px rgba(0, 0, 0, 0.5),
+      0 0 40px rgba(59, 130, 246, 0.08);
+  }
+
+  /* Left neighbor */
+  .coverflow-card[data-position="left-1"] {
+    transform: translateX(-115%) rotateY(25deg) scale(0.8);
+    opacity: 0.55;
+    z-index: 5;
+    pointer-events: auto;
+    filter: blur(1.5px) brightness(0.65);
+    cursor: pointer;
+  }
+
+  /* Right neighbor */
+  .coverflow-card[data-position="right-1"] {
+    transform: translateX(15%) rotateY(-25deg) scale(0.8);
+    opacity: 0.55;
+    z-index: 5;
+    pointer-events: auto;
+    filter: blur(1.5px) brightness(0.65);
+    cursor: pointer;
+  }
+
+  /* Far left */
+  .coverflow-card[data-position="left-2"] {
+    transform: translateX(-160%) rotateY(40deg) scale(0.6);
+    opacity: 0.2;
+    z-index: 2;
+    pointer-events: none;
+    filter: blur(3px) brightness(0.5);
+  }
+
+  /* Far right */
+  .coverflow-card[data-position="right-2"] {
+    transform: translateX(60%) rotateY(-40deg) scale(0.6);
+    opacity: 0.2;
+    z-index: 2;
+    pointer-events: none;
+    filter: blur(3px) brightness(0.5);
+  }
+
+  /* Hidden positions */
+  .coverflow-card[data-position="hidden-left"] {
+    transform: translateX(-200%) rotateY(60deg) scale(0.4);
+    opacity: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .coverflow-card[data-position="hidden-right"] {
+    transform: translateX(100%) rotateY(-60deg) scale(0.4);
+    opacity: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* Hover effect on side cards */
+  .coverflow-card[data-position="left-1"]:hover,
+  .coverflow-card[data-position="right-1"]:hover {
+    filter: blur(0.5px) brightness(0.8);
+    opacity: 0.75;
+  }
+
+  /* Company header inside card */
+  .card-company-header {
+    text-align: center;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.625rem;
+    border-bottom: 1px solid rgba(59, 130, 246, 0.15);
+    flex-shrink: 0;
+  }
+
+  .card-company-title {
+    font-size: 1.25rem;
     font-weight: 800;
     color: #3b82f6;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    transition: opacity 300ms ease-in-out;
   }
-  @media (min-width: 768px) { .company-title { font-size: 1.875rem; } }
+  @media (min-width: 768px) { .card-company-title { font-size: 1.5rem; } }
 
-  .company-date {
-    margin-top: 0.5rem;
-    padding: 0.25rem 1rem;
+  .card-company-date {
+    display: inline-block;
+    margin-top: 0.25rem;
+    padding: 0.2rem 0.75rem;
     letter-spacing: 0.05em;
     border-radius: 9999px;
     background-color: rgba(59, 130, 246, 0.1);
     color: #93c5fd;
-    font-size: 0.875rem;
+    font-size: 0.8rem;
     font-family: monospace;
     border: 1px solid rgba(59, 130, 246, 0.2);
     box-shadow: 0 0 10px rgba(59,130,246,0.1);
-    transition: opacity 300ms ease-in-out;
   }
 
-  .carousel-wrapper {
+  .card-company-modalidad {
+    display: inline-block;
+    margin-top: 0.25rem;
+    padding: 0.2rem 0.75rem;
+    letter-spacing: 0.05em;
+    border-radius: 9999px;
+    background-color: rgba(59, 130, 246, 0.1);
+    color: #93c5fd;
+    font-size: 0.8rem;
+    font-family: monospace;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    box-shadow: 0 0 10px rgba(59,130,246,0.1);
+  }
+
+  /* Card projects wrapper */
+  .card-projects-wrapper {
+    position: relative;
+    flex: 1;
+    overflow: hidden;
+    min-height: 0;
+  }
+
+  /* Navigation arrows - now inside viewport */
+  .coverflow-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 30;
+    width: 3.25rem;
+    height: 3.25rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
-  }
-
-  .nav-btn {
-    position: absolute;
-    z-index: 20;
-    padding: 0.75rem;
-    border-radius: 9999px;
-    background-color: rgba(255, 255, 255, 0.05);
-    color: #ffffff;
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    transition: all 150ms ease-in-out;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-  }
-  .nav-btn:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-color: rgba(59, 130, 246, 0.3);
-  }
-  .prev-company { left: -0.5rem; }
-  .next-company { right: -0.5rem; }
-  @media (min-width: 768px) {
-    .prev-company { left: -3rem; }
-    .next-company { right: -3rem; }
-  }
-  @media (min-width: 1024px) {
-    .prev-company { left: -4rem; }
-    .next-company { right: -4rem; }
-  }
-
-  .nav-icon {
-    width: 1.5rem;
-    height: 1.5rem;
-    transition: transform 150ms ease-in-out;
-  }
-  @media (min-width: 768px) {
-    .nav-icon { width: 2rem; height: 2rem; }
-  }
-  .group:hover .prev-icon { transform: translateX(-0.25rem); }
-  .group:hover .next-icon { transform: translateX(0.25rem); }
-
-  .company-container {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    background-color: rgba(17, 24, 39, 0.4);
+    border-radius: 50%;
+    background: rgba(37, 99, 235, 0.4);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-radius: 1rem;
-    border: 1px solid rgba(55, 65, 81, 0.5);
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-    min-height: 550px;
-    max-height: 700px;
+    border: 1.5px solid rgba(96, 165, 250, 0.5);
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 15px rgba(59, 130, 246, 0.2);
   }
 
-  .company-slide {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
+  .coverflow-nav:hover {
+    background: rgba(37, 99, 235, 0.7);
+    border-color: rgba(96, 165, 250, 0.8);
+    transform: translateY(-50%) scale(1.12);
+    box-shadow: 0 4px 25px rgba(37, 99, 235, 0.5), 0 0 25px rgba(59, 130, 246, 0.3);
+  }
+
+  .coverflow-nav svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+
+  .coverflow-prev {
+    left: 1rem;
+  }
+  .coverflow-next {
+    right: 1rem;
+  }
+  @media (min-width: 768px) {
+    .coverflow-prev { left: 1.5rem; }
+    .coverflow-next { right: 1.5rem; }
+  }
+  @media (min-width: 1280px) {
+    .coverflow-prev { left: 2.5rem; }
+    .coverflow-next { right: 2.5rem; }
+  }
+
+  /* Dot indicators */
+  .coverflow-dots {
     display: flex;
-    flex-direction: column;
-    padding: 1.5rem;
-    transition: opacity 500ms ease-in-out;
-  }
-  @media (min-width: 768px) { .company-slide { padding: 2.5rem; } }
-
-  .projects-wrapper {
-    position: relative;
-    flex: 1;
+    justify-content: center;
+    gap: 0.625rem;
+    margin-top: 1rem;
   }
 
+  .coverflow-dot {
+    width: 0.625rem;
+    height: 0.625rem;
+    border-radius: 50%;
+    border: 1.5px solid rgba(59, 130, 246, 0.4);
+    background: rgba(59, 130, 246, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+  }
+
+  .coverflow-dot:hover {
+    background: rgba(59, 130, 246, 0.4);
+    border-color: rgba(59, 130, 246, 0.6);
+    transform: scale(1.2);
+  }
+
+  .coverflow-dot-active {
+    background: #3b82f6;
+    border-color: #3b82f6;
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+    transform: scale(1.2);
+  }
+
+  /* ==========================================
+     PROJECT SLIDES (inside cards)
+     ========================================== */
   .project-slide {
     width: 100%;
     height: 100%;
@@ -616,53 +868,76 @@ const EXPERIENCES = {
     flex-direction: column;
     justify-content: space-between;
     gap: 1rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     border-bottom: 1px solid rgba(55, 65, 81, 0.3);
-    padding-bottom: 1rem;
+    padding-bottom: 0.75rem;
   }
   @media (min-width: 768px) {
     .project-header { flex-direction: row; align-items: center; }
   }
 
   .project-title {
-    font-size: 1.875rem;
-    line-height: 2.25rem;
+    font-size: 1.5rem;
+    line-height: 1.875rem;
     font-weight: 700;
     color: #ffffff;
     letter-spacing: -0.025em;
   }
+  @media (min-width: 768px) {
+    .project-title { font-size: 1.875rem; line-height: 2.25rem; }
+  }
 
   .project-meta {
     display: flex;
-    align-items: center;
-    gap: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  @media (min-width: 768px) {
+    .project-meta {
+      align-items: flex-end;
+    }
   }
 
   .project-pagination {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    background-color: rgba(31, 41, 55, 0.5);
+    background-color: rgba(31, 41, 55, 0.7);
     border-radius: 9999px;
-    padding: 0.25rem 0.75rem;
-    border: 1px solid #374151;
+    padding: 0.25rem 0.5rem;
+    border: 1px solid rgba(75, 85, 99, 0.5);
+    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.1);
   }
 
   .p-nav {
-    padding: 0.25rem;
-    transition: color 150ms ease-in-out;
-    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.35rem;
+    background-color: #3b82f6;
+    border-radius: 50%;
     border: none;
-    color: inherit;
+    color: #ffffff;
     cursor: pointer;
+    transition: all 150ms ease;
+    box-shadow: 0 2px 6px rgba(59, 130, 246, 0.3);
   }
-  .p-nav:hover { color: #60a5fa; }
+  .p-nav:hover { 
+    background-color: #2563eb;
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.5);
+  }
   .p-nav-icon { width: 1.25rem; height: 1.25rem; }
 
   .project-counter {
-    font-size: 0.75rem;
-    color: #9ca3af;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #f3f4f6;
     font-family: monospace;
+    min-width: 2.5rem;
+    text-align: center;
+    letter-spacing: 0.05em;
   }
 
   .project-date {
@@ -678,31 +953,57 @@ const EXPERIENCES = {
 
   .project-description {
     color: #d1d5db;
-    margin-bottom: 2rem;
-    font-size: 1.125rem;
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
     line-height: 1.625;
+  }
+  @media (min-width: 768px) {
+    .project-description { font-size: 1.125rem; }
   }
 
   .project-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 0.6rem;
     margin-bottom: auto;
   }
 
   .tag {
-    font-size: 0.75rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.8rem;
     font-weight: 500;
-    padding: 0.375rem 0.75rem;
-    border-radius: 0.5rem;
-    background-color: rgba(59, 130, 246, 0.05);
-    color: #bfdbfe;
-    border: 1px solid rgba(59, 130, 246, 0.1);
+    padding: 0.4rem 0.8rem;
+    border-radius: 9999px;
+    background-color: rgba(31, 41, 55, 0.7);
+    color: #e5e7eb;
+    border: 1px solid rgba(75, 85, 99, 0.5);
+    transition: all 0.2s ease-in-out;
+  }
+  .tag:hover {
+    background-color: rgba(59, 130, 246, 0.15);
+    border-color: rgba(59, 130, 246, 0.5);
+    color: #eff6ff;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+  .tag-icon {
+    width: 1.2rem;
+    height: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .tag-icon :global(svg) {
+    width: 1.2rem !important;
+    height: 1.2rem !important;
+    display: block;
   }
 
   .media-section {
-    margin-top: 2rem;
-    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
     border-top: 1px solid rgba(55, 65, 81, 0.3);
   }
 
@@ -765,6 +1066,9 @@ const EXPERIENCES = {
   }
   .group:hover .media-icon { opacity: 1; transform: scale(1); }
 
+  /* ==========================================
+     LIGHTBOX
+     ========================================== */
   .lightbox {
     position: fixed;
     inset: 0;
@@ -865,7 +1169,7 @@ const EXPERIENCES = {
     border-radius: 0.5rem;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
   }
-\n</style>
+</style>
 
 <script define:vars={{ EXPERIENCES }}>
   let currentCategory = 'empleo';
@@ -878,6 +1182,7 @@ const EXPERIENCES = {
     };
   });
   
+  // ==== TABS ====
   const tabs = document.querySelectorAll('.category-tab');
   const sections = document.querySelectorAll('.category-section');
 
@@ -907,61 +1212,155 @@ const EXPERIENCES = {
           });
 
           currentCategory = cat;
-          updateCompany(cat);
+          updateCoverflow(cat);
       });
   });
 
-  function updateCompany(cat) {
-    if(!EXPERIENCES[cat] || EXPERIENCES[cat].length === 0) return;
+  // ==== COVERFLOW 3D CAROUSEL ====
+  function updateCoverflow(cat) {
+    if (!EXPERIENCES[cat] || EXPERIENCES[cat].length === 0) return;
     const sec = document.querySelector(`.category-section.${cat}`);
-    if(!sec) return;
-    
-    const slides = sec.querySelectorAll('.company-slide');
-    const title = sec.querySelector('.company-title');
-    const date = sec.querySelector('.company-date');
-    
-    const idx = state[cat].currentCompanyIdx;
-    
-    slides.forEach((slide, i) => {
-        if(i === idx) {
-            slide.style.visibility = 'visible';
-            slide.style.opacity = '1';
-            slide.style.zIndex = '10';
-        } else {
-            slide.style.opacity = '0';
-            slide.style.zIndex = '0';
-            setTimeout(() => { if(i !== state[cat].currentCompanyIdx) slide.style.visibility = 'hidden'; }, 300);
-        }
+    if (!sec) return;
+
+    const cards = sec.querySelectorAll('.coverflow-card');
+    const dots = sec.querySelectorAll('.coverflow-dot');
+    const currentIdx = state[cat].currentCompanyIdx;
+    const total = cards.length;
+
+    cards.forEach((card, i) => {
+      // Calculate relative position
+      const diff = i - currentIdx;
+      
+      // Remove active class from all
+      card.classList.remove('coverflow-active');
+      
+      if (diff === 0) {
+        card.setAttribute('data-position', 'center');
+        card.classList.add('coverflow-active');
+      } else if (diff === -1 || (currentIdx === 0 && i === total - 1 && total > 2)) {
+        card.setAttribute('data-position', 'left-1');
+      } else if (diff === 1 || (currentIdx === total - 1 && i === 0 && total > 2)) {
+        card.setAttribute('data-position', 'right-1');
+      } else if (diff === -2 || (diff > 0 && diff >= total - 2)) {
+        card.setAttribute('data-position', 'left-2');
+      } else if (diff === 2 || (diff < 0 && diff <= -(total - 2))) {
+        card.setAttribute('data-position', 'right-2');
+      } else if (diff < 0) {
+        card.setAttribute('data-position', 'hidden-left');
+      } else {
+        card.setAttribute('data-position', 'hidden-right');
+      }
     });
 
-    if (EXPERIENCES[cat][idx]) {
-        if(title) title.textContent = EXPERIENCES[cat][idx].company;
-        if(date) date.textContent = EXPERIENCES[cat][idx].date;
-    }
+    // Update dots
+    dots.forEach((dot, i) => {
+      if (i === currentIdx) {
+        dot.classList.add('coverflow-dot-active');
+      } else {
+        dot.classList.remove('coverflow-dot-active');
+      }
+    });
   }
 
-  document.querySelectorAll('.next-company').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-          const cat = e.currentTarget.closest('.category-section').dataset.category;
-          const max = EXPERIENCES[cat].length;
-          if(max === 0) return;
+  // Navigation: Next/Prev company
+  document.querySelectorAll('.coverflow-next').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const cat = e.currentTarget.closest('.category-section').dataset.category;
+      const max = EXPERIENCES[cat].length;
+      if (max === 0) return;
+      state[cat].currentCompanyIdx = (state[cat].currentCompanyIdx + 1) % max;
+      updateCoverflow(cat);
+    });
+  });
+
+  document.querySelectorAll('.coverflow-prev').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const cat = e.currentTarget.closest('.category-section').dataset.category;
+      const max = EXPERIENCES[cat].length;
+      if (max === 0) return;
+      state[cat].currentCompanyIdx = (state[cat].currentCompanyIdx - 1 + max) % max;
+      updateCoverflow(cat);
+    });
+  });
+
+  // Click on side cards to navigate to them
+  document.querySelectorAll('.coverflow-card').forEach(card => {
+    card.addEventListener('click', (e) => {
+      const position = card.getAttribute('data-position');
+      if (position === 'center') return; // Already active, let clicks through
+      
+      // Don't navigate if clicking inside a project's interactive elements
+      if (e.target.closest('.p-nav') || e.target.closest('[data-action="open-lightbox"]')) return;
+      
+      const cat = card.closest('.category-section').dataset.category;
+      const idx = parseInt(card.dataset.companyIndex);
+      state[cat].currentCompanyIdx = idx;
+      updateCoverflow(cat);
+    });
+  });
+
+  // Dot navigation
+  document.querySelectorAll('.coverflow-dot').forEach(dot => {
+    dot.addEventListener('click', (e) => {
+      const cat = e.currentTarget.closest('.category-section').dataset.category;
+      const idx = parseInt(e.currentTarget.dataset.dotIndex);
+      state[cat].currentCompanyIdx = idx;
+      updateCoverflow(cat);
+    });
+  });
+
+  // Keyboard navigation
+  document.addEventListener('keydown', (e) => {
+    // Don't interfere with lightbox
+    if (document.getElementById('lightbox').classList.contains('active')) return;
+    
+    if (e.key === 'ArrowLeft') {
+      const max = EXPERIENCES[currentCategory].length;
+      if (max === 0) return;
+      state[currentCategory].currentCompanyIdx = (state[currentCategory].currentCompanyIdx - 1 + max) % max;
+      updateCoverflow(currentCategory);
+    } else if (e.key === 'ArrowRight') {
+      const max = EXPERIENCES[currentCategory].length;
+      if (max === 0) return;
+      state[currentCategory].currentCompanyIdx = (state[currentCategory].currentCompanyIdx + 1) % max;
+      updateCoverflow(currentCategory);
+    }
+  });
+
+  // Touch/Swipe support for mobile
+  document.querySelectorAll('.coverflow-viewport').forEach(viewport => {
+    let touchStartX = 0;
+    let touchEndX = 0;
+    const minSwipeDistance = 50;
+
+    viewport.addEventListener('touchstart', (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    viewport.addEventListener('touchend', (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      const diff = touchStartX - touchEndX;
+      const cat = viewport.closest('.category-section').dataset.category;
+      const max = EXPERIENCES[cat].length;
+      if (max <= 1) return;
+
+      if (Math.abs(diff) > minSwipeDistance) {
+        if (diff > 0) {
+          // Swipe left -> next
           state[cat].currentCompanyIdx = (state[cat].currentCompanyIdx + 1) % max;
-          updateCompany(cat);
-      });
-  });
-
-  document.querySelectorAll('.prev-company').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-          const cat = e.currentTarget.closest('.category-section').dataset.category;
-          const max = EXPERIENCES[cat].length;
-          if(max === 0) return;
+        } else {
+          // Swipe right -> prev
           state[cat].currentCompanyIdx = (state[cat].currentCompanyIdx - 1 + max) % max;
-          updateCompany(cat);
-      });
+        }
+        updateCoverflow(cat);
+      }
+    }, { passive: true });
   });
 
+  // ==== PROJECT NAVIGATION ====
   document.querySelectorAll('.next-project').forEach(btn => {
       btn.addEventListener('click', (e) => {
+          e.stopPropagation(); // Prevent coverflow card click
           const cat = btn.dataset.category;
           const cIdx = parseInt(btn.dataset.companyIdx);
           const max = EXPERIENCES[cat][cIdx].projects.length;
@@ -973,6 +1372,7 @@ const EXPERIENCES = {
 
   document.querySelectorAll('.prev-project').forEach(btn => {
       btn.addEventListener('click', (e) => {
+          e.stopPropagation(); // Prevent coverflow card click
           const cat = btn.dataset.category;
           const cIdx = parseInt(btn.dataset.companyIdx);
           const max = EXPERIENCES[cat][cIdx].projects.length;
@@ -991,7 +1391,7 @@ const EXPERIENCES = {
   function updateProjectSlide(cat, companyIdx) {
       const sec = document.querySelector(`.category-section.${cat}`);
       if(!sec) return;
-      const companyContainer = sec.querySelector(`.company-slide[data-company-index="${companyIdx}"]`);
+      const companyContainer = sec.querySelector(`.coverflow-card[data-company-index="${companyIdx}"]`);
       if(!companyContainer) return;
 
       const slides = companyContainer.querySelectorAll('.project-slide');
@@ -1012,6 +1412,7 @@ const EXPERIENCES = {
       });
   }
 
+  // ==== LIGHTBOX ====
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightbox-img');
   const lbNext = document.getElementById('lb-next');
@@ -1053,6 +1454,7 @@ const EXPERIENCES = {
   document.addEventListener('click', (e) => {
     const trigger = e.target.closest('[data-action="open-lightbox"]');
     if (trigger) {
+        e.stopPropagation(); // Prevent coverflow card click
         const cat = trigger.dataset.category;
         const cIdx = parseInt(trigger.dataset.companyIdx);
         const pIdx = parseInt(trigger.dataset.projectIdx);
@@ -1091,7 +1493,7 @@ const EXPERIENCES = {
       if (e.key === 'ArrowLeft') lbPrev.click();
   });
   
-  // Drag to scroll functionality for galleries
+  // ==== DRAG TO SCROLL for galleries ====
   function initDragScroll() {
     const galleries = document.querySelectorAll('.media-gallery');
     galleries.forEach(gallery => {
@@ -1126,8 +1528,7 @@ const EXPERIENCES = {
     });
   }
 
-  // Initialize
+  // Initialize everything
   initDragScroll();
-  
-  Object.keys(EXPERIENCES).forEach(cat => updateCompany(cat));
+  Object.keys(EXPERIENCES).forEach(cat => updateCoverflow(cat));
 </script>
