@@ -1,80 +1,341 @@
 ---
 const { class: id } = Astro.props;
-import "/public/css/home/style.css";
 import FormattedText from "./i18n/FormattedText.astro";
 ---
 
-<section class="container" id="Home">
-  <div class="main">
-    <div class="rounding-sec">
-      <div class="big-circle">
-        <div class="icon-block">
-          <!-- <JS /> -->
-          <img src="/icon/js.png" alt="" class="img-w" />
-        </div>
-        <div class="icon-block">
-          <img src="/icon/ts.png" alt="" class="img-w" />
-        </div>
-        <div class="icon-block">
-          <img src="/icon/kotlin.png" alt="" class="img-w" />
-        </div>
-        <div class="icon-block">
-          <img src="/icon/sql.png" alt="" class="img-w" />
-        </div>
+<section class="hero-section" id="Home">
+  <div class="hero-content">
+    <div class="text-content">
+      <div class="title-wrapper">
+        <h3 class="role-badge">
+          <FormattedText
+            text={{ es: "Desarrollador de Software", en: "Software Developer" }}
+          />
+        </h3>
+        <h1 class="name-title">
+          <span>Giovanny</span>
+          <span class="gradient-text">Chica</span>
+        </h1>
       </div>
-      <div class="images">
-        <img
-          src="https://avatars.githubusercontent.com/u/102708414?v=4"
-          alt=""
-          class="img-w"
-        />
-      </div>
-    </div>
-    <div class="detail">
-      <h3 class="">
-        <FormattedText text={{ es: "Desarrollador de Software", en: "Software Developer" }} />
-      </h3>
-      <section class="efecto">
-        <h1 class="top" style="color:#f9532d;"><span>Giovanny</span> Chica</h1>
-        <h1 class="bottom" aria-hidden="true"><span>Giovanny</span> Chica</h1>
-      </section>
-      <h3 class="">
+      <p class="description">
         <FormattedText
           text={{
             es: "Especializado en el diseño y desarrollo de soluciones tecnológicas eficientes, robustas y escalables. Apasionado por las buenas prácticas, la resolución de problemas complejos y el trabajo colaborativo para impulsar productos digitales de alto impacto desde Medellín, Colombia.",
             en: "Specialized in the design and development of efficient, robust, and scalable technological solutions. Passionate about best practices, complex problem solving, and collaborative work to drive high-impact digital products from Medellín, Colombia.",
           }}
         />
-      </h3>
-      <div class="box">
-        <div class="red-social">
-          <a
-            href="https://www.linkedin.com/in/giovannyc-gil/"
-            target="_blank"
-            class="fa-brands fa-linkedin-in"></a>
-          <a
-            href="https://www.instagram.com/giovannychica/"
-            target="_blank"
-            class="fa fa-instagram"></a>
-          <a
-            href="https://wa.me/573043209834"
-            target="_blank"
-            class="fa-brands fa-whatsapp"></a>
-          <a
-            href="https://github.com/GiovannyGil/"
-            target="_blank"
-            class="fa-brands fa-github"></a>
-          <a
-            href="mailto:arvey950@gmail.com"
-            target="_blank"
-            class="fa-solid fa-envelope"></a>
+      </p>
 
-          <a
-            href="#"
-            class="fa-solid fa-circle-info"
-            title="original design of: web_devs__"></a>
+      <div class="social-links">
+        <a
+          href="https://www.linkedin.com/in/giovannyc-gil/"
+          target="_blank"
+          aria-label="LinkedIn"
+          class="social-btn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a
+          href="https://www.instagram.com/giovannychica/"
+          target="_blank"
+          aria-label="Instagram"
+          class="social-btn"><i class="fa-brands fa-instagram"></i></a>
+        <a
+          href="https://wa.me/573043209834"
+          target="_blank"
+          aria-label="WhatsApp"
+          class="social-btn"><i class="fa-brands fa-whatsapp"></i></a>
+        <a
+          href="https://github.com/GiovannyGil/"
+          target="_blank"
+          aria-label="GitHub"
+          class="social-btn"><i class="fa-brands fa-github"></i></a>
+        <a
+          href="mailto:arvey950@gmail.com"
+          target="_blank"
+          aria-label="Email"
+          class="social-btn"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+    </div>
+
+    <div class="image-content">
+      <div class="orbit-container">
+        <div class="orbit-ring">
+          <div class="orbit-icon"><img src="/icon/js.png" alt="JS" /></div>
+          <div class="orbit-icon"><img src="/icon/ts.png" alt="TS" /></div>
+          <div class="orbit-icon">
+            <img src="/icon/kotlin.png" alt="Kotlin" />
+          </div>
+          <div class="orbit-icon"><img src="/icon/sql.png" alt="SQL" /></div>
+        </div>
+        <div class="profile-img-container">
+          <img
+            src="https://avatars.githubusercontent.com/u/102708414?v=4"
+            alt="Giovanny Chica"
+            class="profile-img"
+          />
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<style>
+  .hero-section {
+    padding: 6rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    color: #e2e8f0;
+  }
+
+  .hero-content {
+    max-width: 1300px;
+    width: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 4rem;
+  }
+
+  @media (min-width: 992px) {
+    .hero-content {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    .text-content {
+      flex: 1.2;
+      padding-right: 2rem;
+    }
+
+    .image-content {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+
+  .text-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    animation: fadeUp 1s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .title-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .role-badge {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0;
+  }
+
+  .name-title {
+    font-size: clamp(3rem, 5vw, 4.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin: 0;
+    font-family: "Oswald", sans-serif;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #f9532d 0%, #ff8c42 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .description {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: #cbd5e1;
+    max-width: 600px;
+    margin: 0;
+    font-weight: 400;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    color: #f1f5f9;
+    text-decoration: none;
+    font-size: 1.3rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .social-btn:hover {
+    background: #f9532d;
+    color: white;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 20px -5px rgba(249, 83, 45, 0.5);
+    border-color: #f9532d;
+  }
+
+  /* Orbit Animation */
+  .orbit-container {
+    position: relative;
+    width: 560px;
+    height: 560px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .profile-img-container {
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    padding: 10px;
+    background: linear-gradient(
+      135deg,
+      rgba(249, 83, 45, 0.8),
+      rgba(255, 255, 255, 0.1)
+    );
+    z-index: 10;
+    box-shadow: 0 0 50px rgba(249, 83, 45, 0.25);
+  }
+
+  .profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    background-color: #1e293b;
+    border: 4px solid #0f172a;
+  }
+
+  .orbit-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 1px dashed rgba(255, 255, 255, 0.15);
+    animation: rotateOrbit 25s linear infinite;
+  }
+
+  .orbit-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 64px;
+    height: 64px;
+    margin: -32px; /* offset by half width/height */
+    background: #0f172a;
+    border-radius: 50%;
+    padding: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .orbit-icon:nth-child(1) {
+    transform: rotate(0deg) translateX(280px) rotate(0deg);
+  }
+  .orbit-icon:nth-child(2) {
+    transform: rotate(90deg) translateX(280px) rotate(-90deg);
+  }
+  .orbit-icon:nth-child(3) {
+    transform: rotate(180deg) translateX(280px) rotate(-180deg);
+  }
+  .orbit-icon:nth-child(4) {
+    transform: rotate(270deg) translateX(280px) rotate(-270deg);
+  }
+
+  .orbit-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    animation: counterRotateOrbit 25s linear infinite;
+  }
+
+  @keyframes rotateOrbit {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes counterRotateOrbit {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(-360deg);
+    }
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .orbit-container {
+      width: 360px;
+      height: 360px;
+    }
+    .profile-img-container {
+      width: 260px;
+      height: 260px;
+    }
+    .orbit-icon {
+      width: 50px;
+      height: 50px;
+      margin: -25px;
+      padding: 10px;
+    }
+    .orbit-icon:nth-child(1) {
+      transform: rotate(0deg) translateX(180px) rotate(0deg);
+    }
+    .orbit-icon:nth-child(2) {
+      transform: rotate(90deg) translateX(180px) rotate(-90deg);
+    }
+    .orbit-icon:nth-child(3) {
+      transform: rotate(180deg) translateX(180px) rotate(-180deg);
+    }
+    .orbit-icon:nth-child(4) {
+      transform: rotate(270deg) translateX(180px) rotate(-270deg);
+    }
+
+    .hero-section {
+      padding: 4rem 1.5rem;
+      text-align: center;
+    }
+
+    .social-links {
+      justify-content: center;
+    }
+  }
+</style>
